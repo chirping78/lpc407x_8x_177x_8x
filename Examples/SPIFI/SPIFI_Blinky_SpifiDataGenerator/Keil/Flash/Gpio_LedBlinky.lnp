@@ -1,0 +1,4 @@
+--cpu Cortex-M4.fp ".\flash\startup_lpc407x_8x_177x_8x.o" ".\flash\system_lpc407x_8x_177x_8x.o" ".\flash\debug_frmwrk.o" ".\flash\lpc_gpio.o" ".\flash\lpc_systick.o" ".\flash\lpc_clkpwr.o" ".\flash\lpc_uart.o" ".\flash\lpc_pinsel.o" ".\flash\spifi_test.o" C:\MyProjects\PDL_LPC407x_8x_177x_8x\lpc407x_8x_177x_8x\Drivers\lib\spifi_drv_M4.lib ".\flash\spifi_blinky.o" ".\flash\spifi_delay.o" --library_type=microlib --strict --scatter ".\Flash\spifi_blinky.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Flash\Gpio_LedBlinky.map" -o ".\Flash\Gpio_LedBlinky.axf"

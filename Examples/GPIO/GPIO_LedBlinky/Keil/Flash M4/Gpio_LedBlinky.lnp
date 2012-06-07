@@ -1,0 +1,4 @@
+--cpu Cortex-M4.fp ".\flash m4\startup_lpc407x_8x_177x_8x.o" ".\flash m4\system_lpc407x_8x_177x_8x.o" ".\flash m4\lpc_gpio.o" ".\flash m4\lpc_systick.o" ".\flash m4\lpc_clkpwr.o" ".\flash m4\gpio_ledblinky.o" --library_type=microlib --strict --scatter ".\Flash M4\Gpio_LedBlinky.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Flash M4\Gpio_LedBlinky.map" -o ".\Flash M4\Gpio_LedBlinky.axf"

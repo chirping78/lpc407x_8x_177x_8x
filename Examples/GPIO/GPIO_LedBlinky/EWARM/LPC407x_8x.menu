@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<optionMenuItem>
+  <tag>LPC407x_8x</tag>
+  <display>NXP LPC407x_8x</display>
+  <data>$CUR_DIR$\LPC407x_8x.i79</data>
+</optionMenuItem>
+

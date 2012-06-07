@@ -1,0 +1,12 @@
+.\Flash M3\lpc_rtc.o: ..\..\..\..\Drivers\source\lpc_rtc.c
+.\Flash M3\lpc_rtc.o: ..\..\..\..\Drivers\include\lpc_libcfg_default.h
+.\Flash M3\lpc_rtc.o: ..\..\..\..\Drivers\include\lpc_types.h
+.\Flash M3\lpc_rtc.o: C:\Keil\ARM\RV31\Inc\stdint.h
+.\Flash M3\lpc_rtc.o: ..\..\..\..\Drivers\include\lpc_rtc.h
+.\Flash M3\lpc_rtc.o: ..\..\..\..\Core\Device\NXP\LPC407x_8x_177x_8x\Include\LPC407x_8x_177x_8x.h
+.\Flash M3\lpc_rtc.o: ..\..\..\..\Core\CMSIS\Include\core_cm4.h
+.\Flash M3\lpc_rtc.o: ..\..\..\..\Core\CMSIS\Include\core_cmInstr.h
+.\Flash M3\lpc_rtc.o: ..\..\..\..\Core\CMSIS\Include\core_cmFunc.h
+.\Flash M3\lpc_rtc.o: ..\..\..\..\Core\CMSIS\Include\core_cm4_simd.h
+.\Flash M3\lpc_rtc.o: ..\..\..\..\Core\Device\NXP\LPC407x_8x_177x_8x\Include\system_LPC407x_8x_177x_8x.h
+.\Flash M3\lpc_rtc.o: ..\..\..\..\Drivers\include\lpc_clkpwr.h

@@ -1,0 +1,26 @@
+*** Creating Trace Output File '.\Flash M4\Rtc_EV.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '".\flash m4\startup_lpc407x_8x_177x_8x.o"'
+### List of Objects: adding '".\flash m4\system_lpc407x_8x_177x_8x.o"'
+### List of Objects: adding '".\flash m4\debug_frmwrk.o"'
+### List of Objects: adding '".\flash m4\lpc_clkpwr.o"'
+### List of Objects: adding '".\flash m4\lpc_pinsel.o"'
+### List of Objects: adding '".\flash m4\lpc_uart.o"'
+### List of Objects: adding '".\flash m4\lpc_rtc.o"'
+### List of Objects: adding '".\flash m4\rtc_ev.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M4.fp ".\flash m4\startup_lpc407x_8x_177x_8x.o" ".\flash m4\system_lpc407x_8x_177x_8x.o" ".\flash m4\debug_frmwrk.o" ".\flash m4\lpc_clkpwr.o" ".\flash m4\lpc_pinsel.o" ".\flash m4\lpc_uart.o" ".\flash m4\lpc_rtc.o" ".\flash m4\rtc_ev.o" --library_type=microlib --strict --scatter ".\Flash M4\Rtc_EV.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Flash M4\Rtc_EV.map" -o ".\Flash M4\Rtc_EV.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '.\Flash M4\Rtc_EV.axf'
+### ADS-LD Command File: '.\Flash M4\Rtc_EV.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '.\Flash M4\Rtc_EV.lnp', Handle=0x00000698
+### Writing '.lnp' file
+### ADS-LD Command file '.\Flash M4\Rtc_EV.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

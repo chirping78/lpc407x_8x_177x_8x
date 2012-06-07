@@ -1,0 +1,12 @@
+.\Flash\lpc_uart.o: ..\..\..\..\Drivers\source\lpc_uart.c
+.\Flash\lpc_uart.o: ..\..\..\..\Drivers\include\lpc_libcfg_default.h
+.\Flash\lpc_uart.o: ..\..\..\..\Drivers\include\lpc_types.h
+.\Flash\lpc_uart.o: C:\Keil\ARM\RV31\Inc\stdint.h
+.\Flash\lpc_uart.o: ..\..\..\..\Drivers\include\lpc_uart.h
+.\Flash\lpc_uart.o: ..\..\..\..\Core\Device\NXP\LPC407x_8x_177x_8x\Include\LPC407x_8x_177x_8x.h
+.\Flash\lpc_uart.o: ..\..\..\..\Core\CMSIS\Include\core_cm4.h
+.\Flash\lpc_uart.o: ..\..\..\..\Core\CMSIS\Include\core_cmInstr.h
+.\Flash\lpc_uart.o: ..\..\..\..\Core\CMSIS\Include\core_cmFunc.h
+.\Flash\lpc_uart.o: ..\..\..\..\Core\CMSIS\Include\core_cm4_simd.h
+.\Flash\lpc_uart.o: ..\..\..\..\Core\Device\NXP\LPC407x_8x_177x_8x\Include\system_LPC407x_8x_177x_8x.h
+.\Flash\lpc_uart.o: ..\..\..\..\Drivers\include\lpc_clkpwr.h

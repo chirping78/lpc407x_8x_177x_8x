@@ -1,0 +1,12 @@
+.\Flash\lpc_systick.o: ..\..\..\..\Drivers\source\lpc_systick.c
+.\Flash\lpc_systick.o: ..\..\..\..\Drivers\include\lpc_libcfg_default.h
+.\Flash\lpc_systick.o: ..\..\..\..\Drivers\include\lpc_types.h
+.\Flash\lpc_systick.o: C:\Keil\ARM\RV31\Inc\stdint.h
+.\Flash\lpc_systick.o: ..\..\..\..\Drivers\include\lpc_systick.h
+.\Flash\lpc_systick.o: ..\..\..\..\Core\Device\NXP\LPC407x_8x_177x_8x\Include\LPC407x_8x_177x_8x.h
+.\Flash\lpc_systick.o: ..\..\..\..\Core\CMSIS\Include\core_cm4.h
+.\Flash\lpc_systick.o: ..\..\..\..\Core\CMSIS\Include\core_cmInstr.h
+.\Flash\lpc_systick.o: ..\..\..\..\Core\CMSIS\Include\core_cmFunc.h
+.\Flash\lpc_systick.o: ..\..\..\..\Core\CMSIS\Include\core_cm4_simd.h
+.\Flash\lpc_systick.o: ..\..\..\..\Core\Device\NXP\LPC407x_8x_177x_8x\Include\system_LPC407x_8x_177x_8x.h
+.\Flash\lpc_systick.o: ..\..\..\..\Drivers\include\lpc_clkpwr.h

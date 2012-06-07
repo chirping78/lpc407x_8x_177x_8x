@@ -1,0 +1,10 @@
+.\Flash\spifi_blinky.o: ..\spifi_blinky.c
+.\Flash\spifi_blinky.o: ..\..\..\..\Core\Device\NXP\LPC407x_8x_177x_8x\Include\LPC407x_8x_177x_8x.h
+.\Flash\spifi_blinky.o: ..\..\..\..\Core\CMSIS\Include\core_cm4.h
+.\Flash\spifi_blinky.o: C:\Keil\ARM\RV31\Inc\stdint.h
+.\Flash\spifi_blinky.o: ..\..\..\..\Core\CMSIS\Include\core_cmInstr.h
+.\Flash\spifi_blinky.o: ..\..\..\..\Core\CMSIS\Include\core_cmFunc.h
+.\Flash\spifi_blinky.o: ..\..\..\..\Core\CMSIS\Include\core_cm4_simd.h
+.\Flash\spifi_blinky.o: ..\..\..\..\Core\Device\NXP\LPC407x_8x_177x_8x\Include\system_LPC407x_8x_177x_8x.h
+.\Flash\spifi_blinky.o: ..\spifi_blinky.h
+.\Flash\spifi_blinky.o: ..\spifi_delay.h
