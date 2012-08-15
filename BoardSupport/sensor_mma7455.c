@@ -30,14 +30,14 @@
 **********************************************************************/
 
 #ifdef __BUILD_WITH_EXAMPLE__
-#include "lpc177x_8x_libcfg.h"
+#include "lpc_libcfg.h"
 #else
-#include "lpc177x_8x_libcfg_default.h"
+#include "lpc_libcfg_default.h"
 #endif /* __BUILD_WITH_EXAMPLE__ */
 #ifdef _I2C
 #include "sensor_mma7455.h"
-#include "lpc177x_8x_i2c.h"
-#include "lpc177x_8x_pinsel.h"
+#include "lpc_i2c.h"
+#include "lpc_pinsel.h"
 
 #ifndef abs
 #define abs(x)  (x > 0) ? x:(-x)

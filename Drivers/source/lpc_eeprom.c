@@ -1,9 +1,9 @@
 /**********************************************************************
-* $Id$		lpc177x_8x_eeprom.c			2011-06-02
+* $Id$		lpc_eeprom.c			2011-06-02
 *//**
-* @file		lpc177x_8x_eeprom.c
+* @file		lpc_eeprom.c
 * @brief	Contains all functions support for EEPROM firmware library on
-*			LPC177x_8x
+*			LPC
 * @version	1.0
 * @date		02. June. 2011
 * @author	NXP MCU SW Application Team
@@ -35,15 +35,15 @@
  * @{
  */
 #ifdef __BUILD_WITH_EXAMPLE__
-#include "lpc177x_8x_libcfg.h"
+#include "lpc_libcfg.h"
 #else
-#include "lpc177x_8x_libcfg_default.h"
+#include "lpc_libcfg_default.h"
 #endif /* __BUILD_WITH_EXAMPLE__ */
 #ifdef _EEPROM
  
 /* Includes ------------------------------------------------------------------- */
-#include "lpc177x_8x_eeprom.h"
-#include "lpc177x_8x_clkpwr.h"
+#include "lpc_eeprom.h"
+#include "lpc_clkpwr.h"
 
 /* Public Functions ----------------------------------------------------------- */
 

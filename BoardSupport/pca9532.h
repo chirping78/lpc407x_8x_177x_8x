@@ -34,7 +34,7 @@
 
 /* Peripheral group ----------------------------------------------------------- */
 /** @defgroup  I2C_Led_Dimmer_PCA9532	I2C Led Dimmer PCA9532
- * @ingroup LPC177x_8xCMSIS_Board_Support
+ * @ingroup LPC CMSIS_Board_Support
  * @{
  */
 

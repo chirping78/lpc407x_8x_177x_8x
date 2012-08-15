@@ -1,9 +1,9 @@
  /***********************************************************************
-* $Id$		abstract.txt		2012-06-06
-* @file		SPIFI\SPIFI_Test\abstract.txt 
-* @brief	Description of the SPIFI_Test example.
+* $Id$		abstract.txt		2012-01-16
+* @file		GPIO\GPIO_LedBlinky\abstract.txt 
+* @brief	Description of the GPIO LedBlinky example.
 * @version	1.0
-* @date		06. June. 2012
+* @date		16. January. 2012
 * @author	NXP MCU SW Application Team
 * 
 * Copyright(C) 2012, NXP Semiconductor
@@ -24,16 +24,16 @@
   
 @Example description:
 	Purpose:
-		This simple program is used to erase and program of the SPIFI device		
+		This simple program is used to test GPIO interrupt functionality to drive LED		
 	Process:
-		After reset, the SPIFI device will be initialized, then erased and programmed
+		After reset, the LED1 will be blinking
 		@Note: Pls reference bsp.h to know what led is used.
 
 @Directory contents:
 	\Keil:	includes RVMDK (Keil)project and configuration files 
 	\EWARM: includes EWARM (IAR) project and configuration files
 	
-	Spifi_Test.c: Main program
+	Gpio_LedBlinky.c: Main program
 
 @How to run:
 	Hardware configuration:		

@@ -3,8 +3,8 @@
 ***
 * @file		lpc_libcfg.h
 * @brief	Library configuration file
-* @version	2.0
-* @date		21. May. 2010
+* @version	3.0
+* @date		20. June. 2010
 * @author	NXP MCU SW Application Team
 *
 * Copyright(C) 2010, NXP Semiconductor
@@ -39,7 +39,9 @@
 /* Un-comment the line below to compile the library in DEBUG mode, this will expanse
    the "CHECK_PARAM" macro in the FW library code */
 
+#ifndef __CODE_RED
 #define DEBUG
+#endif
 
 
 /******************* PERIPHERAL FW LIBRARY CONFIGURATION DEFINITIONS ***********************/

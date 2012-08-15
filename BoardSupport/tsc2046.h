@@ -35,7 +35,7 @@
 #include "lpc_types.h"
 
 /** @defgroup  TSC2046	TSC2046
- * @ingroup LPC177x_8xCMSIS_Board_Support
+ * @ingroup LPC CMSIS_Board_Support
  * @{
  */
 

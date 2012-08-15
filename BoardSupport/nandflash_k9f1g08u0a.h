@@ -32,14 +32,14 @@
 
 /* Peripheral group ----------------------------------------------------------- */
 /** @defgroup Nandflash_K9F1G08U0A NandFlash K9F1G08U0A
- * @ingroup LPC177x_8xCMSIS_Board_Support
+ * @ingroup LPC CMSIS_Board_Support
  * @{
  */
 
 #ifndef __NANDFLASH_K9F1G08U0A_H_
 #define __NANDFLASH_K9F1G08U0A_H_
 
-#include "lpc177x_8x_emc.h"
+#include "lpc_emc.h"
 #include "bsp.h"
 
 /*****************************************************************************

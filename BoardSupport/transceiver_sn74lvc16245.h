@@ -34,14 +34,14 @@
 
 /* Peripheral group ----------------------------------------------------------- */
 /** @defgroup  Transceiver_SN74LVC16245	Transceiver SN74LVC16245
- * @ingroup LPC177x_8xCMSIS_Board_Support
+ * @ingroup LPC CMSIS_Board_Support
  * @{
  */
 #ifndef __TRANSCEIVER_SN74LVC16245_H
 #define __TRANSCEIVER_SN74LVC16245_H
 
-#include "lpc177x_8x_pinsel.h"
-#include "lpc177x_8x_gpio.h"
+#include "lpc_pinsel.h"
+#include "lpc_gpio.h"
 
 
 #define SN74X_DIR_CONTROLLED_PORT		(4)

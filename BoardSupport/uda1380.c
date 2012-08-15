@@ -29,15 +29,15 @@
 * this code.
 **********************************************************************/
 #ifdef __BUILD_WITH_EXAMPLE__
-#include "lpc177x_8x_libcfg.h"
+#include "lpc_libcfg.h"
 #else
-#include "lpc177x_8x_libcfg_default.h"
+#include "lpc_libcfg_default.h"
 #endif /* __BUILD_WITH_EXAMPLE__ */
 #ifdef _I2C
 
 #include "uda1380.h"
-#include "lpc177x_8x_i2c.h"
-#include "lpc177x_8x_pinsel.h"
+#include "lpc_i2c.h"
+#include "lpc_pinsel.h"
 
 //Uda1380 link to I2C0 only
 #define UDA1380_I2C		I2C_0
@@ -56,7 +56,7 @@ int32_t Uda1380_Init(uint32_t i2cClockFreq, uint32_t i2sClockFreq)
 	uint8_t clk;
 	
 	// Config Pin for I2C_SDA and I2C_SCL of I2C0
-	// It's because the Uda1380 IC is linked to LPC177x_8x by I2C0 clearly
+	// It's because the Uda1380 IC is linked to LPC407x_8x_177x_8x by I2C0 clearly
 	PINSEL_ConfigPin (0, 27, 1);
 	PINSEL_ConfigPin (0, 28, 1);
 

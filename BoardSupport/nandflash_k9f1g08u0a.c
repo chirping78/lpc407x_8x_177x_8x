@@ -30,17 +30,17 @@
 * this code.
 **********************************************************************/
 #ifdef __BUILD_WITH_EXAMPLE__
-#include "lpc177x_8x_libcfg.h"
+#include "lpc_libcfg.h"
 #else
-#include "lpc177x_8x_libcfg_default.h"
+#include "lpc_libcfg_default.h"
 #endif /* __BUILD_WITH_EXAMPLE__ */
 #ifdef _EMC
 
 #include "nandflash_k9f1g08u0a.h"
-#include "lpc177x_8x_emc.h"
-#include "lpc177x_8x_clkpwr.h"
-#include "lpc177x_8x_pinsel.h"
-#include "lpc177x_8x_timer.h"
+#include "lpc_emc.h"
+#include "lpc_clkpwr.h"
+#include "lpc_pinsel.h"
+#include "lpc_timer.h"
 
 uint8_t InvalidBlockTable[NANDFLASH_NUMOF_BLOCK];
 

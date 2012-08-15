@@ -30,15 +30,15 @@
 * this code.
 **********************************************************************/
 #ifdef __BUILD_WITH_EXAMPLE__
-#include "lpc177x_8x_libcfg.h"
+#include "lpc_libcfg.h"
 #else
-#include "lpc177x_8x_libcfg_default.h"
+#include "lpc_libcfg_default.h"
 #endif /* __BUILD_WITH_EXAMPLE__ */
 #ifdef _EMAC
 #include "phylan.h"
 
 /** @defgroup  Phylan	Phylan Setting
- * @ingroup LPC177x_8xCMSIS_Board_Support
+ * @ingroup LPC CMSIS_Board_Support
  * @{
  */
 

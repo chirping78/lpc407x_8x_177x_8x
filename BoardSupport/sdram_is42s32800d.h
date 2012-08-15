@@ -32,7 +32,7 @@
 
 /* Peripheral group ----------------------------------------------------------- */
 /** @defgroup  Sdram_IS42S32800D	Sdram IS42S32800D
- * @ingroup LPC177x_8xCMSIS_Board_Support
+ * @ingroup LPC CMSIS_Board_Support
  * @{
  */
 

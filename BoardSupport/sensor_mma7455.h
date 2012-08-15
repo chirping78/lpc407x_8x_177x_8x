@@ -35,7 +35,7 @@
 #include "lpc_types.h"
 
 /** @defgroup  Sensor_MMA7455 	I2C Sensor MMA7455 
- * @ingroup LPC177x_8xCMSIS_Board_Support
+ * @ingroup LPC CMSIS_Board_Support
  * @{
  */
 

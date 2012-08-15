@@ -1,12 +1,12 @@
 /****************************************************************************************************//**
-* $Id$		LPC407x_8x.h			2012-04-25
+* $Id$		LPC407x_8x_177x_8x.h			2012-04-25
 *//**
- * @file     LPC407x_8x.h
+ * @file     LPC407x_8x_177x_8x.h
  *
- * @brief    CMSIS Cortex-M4 Peripheral Access Layer Header File for
- *           NXP LPC407x_8x.
- * @version  V0.6
- * @date     30. May 2012
+ * @brief    CMSIS Cortex-M4 Cortex-M3 Peripheral Access Layer Header File for
+ *           NXP LPC407x_8x_177x_8x.
+ * @version  V0.7
+ * @date     20. June 2012
  * @author	NXP MCU SW Application Team
 * 
 * Copyright(C) 2012, NXP Semiconductor
@@ -55,7 +55,7 @@ typedef enum IRQn
   PendSV_IRQn                   = -2,       /*!< 14 Cortex-M3 Pend SV Interrupt                   */
   SysTick_IRQn                  = -1,       /*!< 15 Cortex-M3 System Tick Interrupt               */
 
-/******  LPC177x_8x Specific Interrupt Numbers *******************************************************/
+/******  LPC407x_8x_177x_8x Specific Interrupt Numbers *******************************************************/
   WDT_IRQn                      = 0,        /*!< Watchdog Timer Interrupt                         */
   TIMER0_IRQn                   = 1,        /*!< Timer0 Interrupt                                 */
   TIMER1_IRQn                   = 2,        /*!< Timer1 Interrupt                                 */
@@ -104,16 +104,27 @@ typedef enum IRQn
 /* ================================================================================ */
 /* ================      Processor and Core Peripheral Section     ================ */
 /* ================================================================================ */
-
+#ifdef CORE_M4
 /* ----------------Configuration of the cm4 Processor and Core Peripherals---------------- */
 #define __CM4_REV                 0x0000            /*!< Cortex-M4 Core Revision                                               */
 #define __MPU_PRESENT                  1            /*!< MPU present or not                                                    */
-#define __NVIC_PRIO_BITS               3            /*!< Number of Bits used for Priority Levels                               */
+#define __NVIC_PRIO_BITS               5            /*!< Number of Bits used for Priority Levels                               */
 #define __Vendor_SysTickConfig         0            /*!< Set to 1 if different SysTick Config is used                          */
 #define __FPU_PRESENT                  1            /*!< FPU present or not                                                    */
 
 
 #include "core_cm4.h"                               /*!< Cortex-M4 processor and core peripherals                              */
+#else
+/* Configuration of the Cortex-M3 Processor and Core Peripherals */
+#define __MPU_PRESENT             1         /*!< MPU present or not                               */
+#define __NVIC_PRIO_BITS          5         /*!< Number of Bits used for Priority Levels          */
+#define __Vendor_SysTickConfig    0         /*!< Set to 1 if different SysTick Config is used     */
+
+
+#include "core_cm3.h"                       /* Cortex-M3 processor and core peripherals           */
+
+#endif
+
 #include "system_LPC407x_8x_177x_8x.h"                      /*!< LPC408x_7x System                                                     */
 
 

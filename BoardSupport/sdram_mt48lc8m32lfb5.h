@@ -32,7 +32,7 @@
 
 /* Peripheral group ----------------------------------------------------------- */
 /** @defgroup  Sdram_MT48LC8M32FLB5	Sdram MT48LC8M32FLB5
- * @ingroup LPC177x_8xCMSIS_Board_Support
+ * @ingroup LPC CMSIS_Board_Support
  * @{
  */
 

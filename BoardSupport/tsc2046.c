@@ -30,17 +30,17 @@
 **********************************************************************/
 #include "bsp.h"
 #ifdef __BUILD_WITH_EXAMPLE__
-#include "lpc177x_8x_libcfg.h"
+#include "lpc_libcfg.h"
 #else
-#include "lpc177x_8x_libcfg_default.h"
+#include "lpc_libcfg_default.h"
 #endif /* __BUILD_WITH_EXAMPLE__ */
 
 #if (_CUR_USING_LCD == _RUNNING_LCD_QVGA_TFT)
 #ifdef _SSP
-#include "LPC177x_8x.h"
-#include "lpc177x_8x_ssp.h"
-#include "lpc177x_8x_pinsel.h"
-#include "lpc177x_8x_gpio.h"
+#include "LPC407x_8x_177x_8x.h"
+#include "lpc_ssp.h"
+#include "lpc_pinsel.h"
+#include "lpc_gpio.h"
 #include "tsc2046.h"
 #include "bsp.h"
 #if (TSC2046_CONVERSION_BITS == 12)

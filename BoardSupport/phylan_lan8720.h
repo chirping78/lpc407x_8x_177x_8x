@@ -33,7 +33,7 @@
 
 /* Peripheral group ----------------------------------------------------------- */
 /** @defgroup  Phylan_LAN8720	Phylan LAN8720
- * @ingroup LPC177x_8xCMSIS_Board_Support
+ * @ingroup LPC CMSIS_Board_Support
  * @{
  */
  

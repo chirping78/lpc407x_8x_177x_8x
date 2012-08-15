@@ -30,20 +30,20 @@
 **********************************************************************/
 #include "bsp.h"
 #ifdef __BUILD_WITH_EXAMPLE__
-#include "lpc177x_8x_libcfg.h"
+#include "lpc_libcfg.h"
 #else
-#include "lpc177x_8x_libcfg_default.h"
+#include "lpc_libcfg_default.h"
 #endif /* __BUILD_WITH_EXAMPLE__ */
 
-#include "lpc177x_8x_ssp.h"
-#include "lpc177x_8x_pinsel.h"
-#include "lpc177x_8x_timer.h"
-#include "lpc177x_8x_gpio.h"
+#include "lpc_ssp.h"
+#include "lpc_pinsel.h"
+#include "lpc_timer.h"
+#include "lpc_gpio.h"
 
 #if (_CUR_USING_LCD == _RUNNING_LCD_QVGA_TFT)
 #if defined(_SSP)&& defined (_GPIO) && defined(_TIM)
 /** @defgroup LCD_QVGA  QVGA TFT LCD
- * @ingroup LPC177x_8xCMSIS_Board_Support
+ * @ingroup LPC CMSIS_Board_Support
  * @{
  */
 

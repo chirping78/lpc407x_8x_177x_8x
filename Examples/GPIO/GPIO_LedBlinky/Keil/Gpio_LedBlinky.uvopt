@@ -275,7 +275,7 @@
       <OPTFL>
         <tvExp>1</tvExp>
         <tvExpOptDlg>0</tvExpOptDlg>
-        <IsCurrentTarget>1</IsCurrentTarget>
+        <IsCurrentTarget>0</IsCurrentTarget>
       </OPTFL>
       <CpuCode>255</CpuCode>
       <DllOpt>
@@ -456,7 +456,7 @@
         <PageWidth>79</PageWidth>
         <PageLength>66</PageLength>
         <TabStop>8</TabStop>
-        <ListingPath>.\RAM\</ListingPath>
+        <ListingPath>.\RAM M4\</ListingPath>
       </OPTLEX>
       <ListingPage>
         <CreateCListing>1</CreateCListing>
@@ -683,7 +683,7 @@
       <OPTFL>
         <tvExp>1</tvExp>
         <tvExpOptDlg>0</tvExpOptDlg>
-        <IsCurrentTarget>0</IsCurrentTarget>
+        <IsCurrentTarget>1</IsCurrentTarget>
       </OPTFL>
       <CpuCode>8</CpuCode>
       <Books>
@@ -845,7 +845,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>124</TopLine>
+      <TopLine>126</TopLine>
       <CurrentLine>132</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\..\Core\Device\NXP\LPC407x_8x_177x_8x\Source\Templates\ARM\startup_LPC407x_8x_177x_8x.s</PathWithFileName>
@@ -866,7 +866,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>474</TopLine>
+      <TopLine>478</TopLine>
       <CurrentLine>487</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\..\Core\Device\NXP\LPC407x_8x_177x_8x\Source\Templates\system_LPC407x_8x_177x_8x.c</PathWithFileName>
@@ -887,7 +887,7 @@
       <Focus>0</Focus>
       <ColumnNumber>19</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>69</TopLine>
+      <TopLine>273</TopLine>
       <CurrentLine>284</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\..\Drivers\source\lpc_gpio.c</PathWithFileName>
@@ -915,7 +915,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>112</TopLine>
+      <TopLine>114</TopLine>
       <CurrentLine>119</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\..\Drivers\source\lpc_clkpwr.c</PathWithFileName>
@@ -934,10 +934,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>3</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>98</CurrentLine>
+      <TopLine>88</TopLine>
+      <CurrentLine>99</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\Gpio_LedBlinky.c</PathWithFileName>
       <FilenameWithoutPath>Gpio_LedBlinky.c</FilenameWithoutPath>

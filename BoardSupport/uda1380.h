@@ -3,7 +3,7 @@
 
 #include "lpc_types.h"
 /** @defgroup  UDA_1380	UDA 1380
- * @ingroup LPC177x_8xCMSIS_Board_Support
+ * @ingroup LPC CMSIS_Board_Support
  * @{
  */
 

@@ -33,7 +33,7 @@
  
 /* Peripheral group ----------------------------------------------------------- */
 /** @defgroup  Phylan_DP83848C	Phylan DP83848C
- * @ingroup LPC177x_8xCMSIS_Board_Support
+ * @ingroup LPC CMSIS_Board_Support
  * @{
  */
 #ifndef __PHY_DP83848C_H

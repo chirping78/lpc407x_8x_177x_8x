@@ -32,13 +32,13 @@
 
 /* Peripheral group ----------------------------------------------------------- */
 /** @defgroup NorFlash_SST39VF3201 NorFlash SST39VF3201
- * @ingroup LPC177x_8xCMSIS_Board_Support
+ * @ingroup LPC CMSIS_Board_Support
  * @{
  */
 #ifndef __NORFLASH_SST39VF3201_H_
 #define __NORFLASH_SST39VF3201_H_
 
-#include "lpc177x_8x_emc.h"
+#include "lpc_emc.h"
 
 /*****************************************************************************
  * Defines and typedefs

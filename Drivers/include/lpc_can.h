@@ -32,7 +32,7 @@
 
 /* Peripheral group ----------------------------------------------------------- */
 /** @defgroup CAN CAN (Controller Area Network)
- * @ingroup LPC177x_8xCMSIS_FwLib_Drivers
+ * @ingroup LPC CMSIS_FwLib_Drivers
  * @{
  */
 

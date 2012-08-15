@@ -32,7 +32,7 @@
 
 /* Peripheral group ----------------------------------------------------------- */
 /** @defgroup  Sdram_K4S561632J	Sdram K4S561632J
- * @ingroup LPC177x_8xCMSIS_Board_Support
+ * @ingroup LPC CMSIS_Board_Support
  * @{
  */
 

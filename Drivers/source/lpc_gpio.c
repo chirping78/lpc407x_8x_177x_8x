@@ -1,9 +1,9 @@
 /**********************************************************************
-* $Id$		lpc177x_8x_gpio.c			2011-06-02
+* $Id$		lpc_gpio.c			2011-06-02
 *//**
-* @file		lpc177x_8x_gpio.c
+* @file		lpc_gpio.c
 * @brief	Contains all functions support for GPIO firmware library
-*			on LPC177x_8x
+*			on LPC
 * @version	1.0
 * @date		02. June. 2011
 * @author	NXP MCU SW Application Team

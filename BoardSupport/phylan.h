@@ -41,7 +41,7 @@
 //Driver for PHY of LAN KS8721B IC
 #include "phylan_ks8721b.h"
 #endif
-#include "lpc177x_8x_emac.h"
+#include "lpc_emac.h"
 
 
 int32_t PHY_Init(EMAC_PHY_CFG_Type *pConfig);

@@ -10,8 +10,8 @@
 *			freely distributed within development tools that are supporting
 *			such ARM based processors.
 *
-* @version	1.1
-* @date		30. May. 2012
+* @version	1.2
+* @date		20. June. 2012
 * @author	NXP MCU SW Application Team
 *
 * Copyright(C) 2012, NXP Semiconductor
@@ -516,8 +516,10 @@ void fpu_init(void)
  */
 void SystemInit (void)
 {
+#ifndef __CODE_RED
 #ifdef CORE_M4
 fpu_init();
+#endif
 #endif
 
 #if (CLOCK_SETUP)                       /* Clock Setup                        */
@@ -558,10 +560,12 @@ fpu_init();
 #if (FLASH_SETUP == 1)                  /* Flash Accelerator Setup            */
   LPC_SC->FLASHCFG  = FLASHCFG_Val|0x03A;
 #endif
+#ifndef __CODE_RED
 #ifdef  __RAM_MODE__
   SCB->VTOR  = 0x10000000 & 0x3FFFFF80;
 #else
   SCB->VTOR  = 0x00000000 & 0x3FFFFF80;
+#endif
 #endif
   SystemCoreClockUpdate();
 }

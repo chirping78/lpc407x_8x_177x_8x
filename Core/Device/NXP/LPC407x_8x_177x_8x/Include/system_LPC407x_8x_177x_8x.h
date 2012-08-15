@@ -1,9 +1,9 @@
 /**********************************************************************
-* $Id$		system_LPC177x_8x.h			2011-06-02
+* $Id$		system_LPC407x_8x_177x_8x.h			2011-06-02
 *//**
-* @file		system_LPC177x_8x.h
+* @file		system_LPC407x_8x_177x_8x.h
 * @brief	CMSIS Cortex-M3 Device Peripheral Access Layer Source File
-*			for the NXP LPC177x_8x Device Series
+*			for the NXP LPC Device Series
 * @version	1.0
 * @date		02. June. 2011
 * @author	NXP MCU SW Application Team

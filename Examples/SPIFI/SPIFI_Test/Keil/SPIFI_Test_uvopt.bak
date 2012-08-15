@@ -516,7 +516,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>131</TopLine>
+      <TopLine>130</TopLine>
       <CurrentLine>132</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\..\Core\Device\NXP\LPC407x_8x_177x_8x\Source\Templates\ARM\startup_LPC407x_8x_177x_8x.s</PathWithFileName>
@@ -558,7 +558,7 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>512</TopLine>
+      <TopLine>511</TopLine>
       <CurrentLine>515</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\..\..\Drivers\source\debug_frmwrk.c</PathWithFileName>
@@ -649,7 +649,7 @@
       <Focus>0</Focus>
       <ColumnNumber>18</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>158</TopLine>
+      <TopLine>155</TopLine>
       <CurrentLine>163</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\Spifi_Test.c</PathWithFileName>

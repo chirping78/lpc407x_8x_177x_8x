@@ -30,18 +30,18 @@
 **********************************************************************/
 #include "bsp.h"
 #ifdef __BUILD_WITH_EXAMPLE__
-#include "lpc177x_8x_libcfg.h"
+#include "lpc_libcfg.h"
 #else
-#include "lpc177x_8x_libcfg_default.h"
+#include "lpc_libcfg_default.h"
 #endif /* __BUILD_WITH_EXAMPLE__ */
 #if (_CURR_USING_BRD == _EA_PA_BOARD)
 #ifdef _EMC
 
 #include "bsp.h"
-#include "lpc177x_8x_emc.h"
-#include "lpc177x_8x_clkpwr.h"
-#include "lpc177x_8x_pinsel.h"
-#include "lpc177x_8x_timer.h"
+#include "lpc_emc.h"
+#include "lpc_clkpwr.h"
+#include "lpc_pinsel.h"
+#include "lpc_timer.h"
 #include "sdram_is42s32800d.h"
 
 /* Public Functions ----------------------------------------------------------- */
