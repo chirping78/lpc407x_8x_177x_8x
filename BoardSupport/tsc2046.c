@@ -35,7 +35,7 @@
 #include "lpc_libcfg_default.h"
 #endif /* __BUILD_WITH_EXAMPLE__ */
 
-#if (_CUR_USING_LCD == _RUNNING_LCD_QVGA_TFT)
+#if ((_CUR_USING_LCD == _RUNNING_LCD_QVGA_TFT) ||(_CUR_USING_LCD == _RUNNING_LCD_EA_REV_PB1))
 #ifdef _SSP
 #include "LPC407x_8x_177x_8x.h"
 #include "lpc_ssp.h"
@@ -44,20 +44,28 @@
 #include "tsc2046.h"
 #include "bsp.h"
 #if (TSC2046_CONVERSION_BITS == 12)
-#define TSC2046_X_COORD_MAX           (0xFFF)
-#define TSC2046_Y_COORD_MAX           (0xFFF)
-#define TSC2046_DELTA_X_VARIANCE      (0x50)
-#define TSC2046_DELTA_Y_VARIANCE      (0x50)
+#define TSC2046_X_COORD_MAX             (0xFFF)
+#define TSC2046_Y_COORD_MAX            (0xFFF)
+#define TSC2046_Z1_COORD_MAX           (0xFFF)
+#define TSC2046_Z2_COORD_MAX           (0xFFF)
+#define TSC2046_DELTA_X_VARIANCE        (0x50)
+#define TSC2046_DELTA_Y_VARIANCE        (0x50)
+#define TSC2046_DELTA_Z1_VARIANCE       (0x50)
+#define TSC2046_DELTA_Z2_VARIANCE        (0x50)
 #else
 #define TSC2046_X_COORD_MAX           (0xFF)
 #define TSC2046_Y_COORD_MAX           (0xFF)
+#define TSC2046_Z1_COORD_MAX           (0xFF)
+#define TSC2046_Z2_COORD_MAX           (0xFF)
 #define TSC2046_DELTA_X_VARIANCE      (0x05)
 #define TSC2046_DELTA_Y_VARIANCE      (0x05)
+#define TSC2046_DELTA_Z1_VARIANCE      (0x05)
+#define TSC2046_DELTA_Z2_VARIANCE      (0x05)
 #endif
 #define COORD_GET_NUM                 (3)
 
 /** SSP Configuration */
-#define TSC2046_SSP_PORT	            (LPC_SSP0)
+#define TSC2046_SSP_PORT	            (LCD_TS_SSP_CTRL)
 #define TSC2046_CS_PORT_NUM             (LCD_CS_PORT_NUM)
 #define TSC2046_CS_PIN_NUM              (LCD_CS_PIN_NUM)
 
@@ -67,6 +75,8 @@
 /** Local variables */
 static uint16_t X_Points[COORD_GET_NUM];
 static uint16_t Y_Points[COORD_GET_NUM];
+static uint16_t Z1_Points[COORD_GET_NUM];
+static uint16_t Z2_Points[COORD_GET_NUM];
 static TSC2046_Init_Type TSC_Config;
 
 
@@ -103,10 +113,18 @@ void InitTSC2046(TSC2046_Init_Type *pConfig)
   SSP_CFG_Type SSP_ConfigStruct;
     
   // PIN config SSP
+#ifdef CORE_M4
+  //PINSEL_ConfigPin(TSC2046_CS_PORT_NUM, TSC2046_CS_PIN_NUM, 0);
+  PINSEL_ConfigPin(5, 2, 2);
+  //PINSEL_ConfigPin(5, 3, 2);
+  PINSEL_ConfigPin(5, 1, 2);
+  PINSEL_ConfigPin(5, 0, 2);
+#else
   PINSEL_ConfigPin(0, 15, 2);
   //PINSEL_ConfigPin(0, 16, 2);   // Use another pin for CS
   PINSEL_ConfigPin(0, 17, 2);
   PINSEL_ConfigPin(0, 18, 2);
+#endif
   PINSEL_ConfigPin(TSC2046_CS_PORT_NUM, TSC2046_CS_PIN_NUM, 0);
   GPIO_SetDir(TSC2046_CS_PORT_NUM,(1<<TSC2046_CS_PIN_NUM),1);
   
@@ -144,43 +162,37 @@ void InitTSC2046(TSC2046_Init_Type *pConfig)
 static void ReadWriteTSC2046(uint8_t channel, uint16_t* data)
 {
 	uint8_t cmd;
-	uint32_t tmp;
+	volatile uint32_t tmp;
 	SSP_DATA_SETUP_Type sspCfg;
-    uint8_t first, second;
+    uint8_t rx[2];
     
     CS_ON;
+
+    /* Send command */
 #if (TSC2046_CONVERSION_BITS == 8)      
 	cmd = START_BIT | CHANNEL_SELECT(channel)|CONVERT_MODE_8_BITS|DFR_MODE|REF_OFF_ADC_ON;
 #else
     cmd = START_BIT | CHANNEL_SELECT(channel)|CONVERT_MODE_12_BITS|DFR_MODE|REF_OFF_ADC_ON;
 #endif
-
-	sspCfg.tx_data = &cmd;
+    sspCfg.tx_data = &cmd;
 	sspCfg.rx_data = NULL;
 	sspCfg.length  = 1; 
     SSP_ReadWrite (TSC2046_SSP_PORT, &sspCfg, SSP_TRANSFER_POLLING);
 
     for(tmp = 0x100; tmp;tmp--);
-    
-    // Read High byte
+
+    /* Read the response */
     sspCfg.tx_data = NULL;
-	sspCfg.rx_data = &first;
-	sspCfg.length  = 1; 
-    SSP_ReadWrite (TSC2046_SSP_PORT, &sspCfg, SSP_TRANSFER_POLLING);
-
-    for(tmp = 0x10; tmp;tmp--);
-
-    // Read Low byte
-	sspCfg.tx_data = NULL;
-	sspCfg.rx_data = &second;
-	sspCfg.length  = 1; 
+	sspCfg.rx_data = rx;
+	sspCfg.length  = 2; 
     SSP_ReadWrite (TSC2046_SSP_PORT, &sspCfg, SSP_TRANSFER_POLLING);
 
 #if (TSC2046_CONVERSION_BITS == 8) 
-	*data = (((first&0x7F) <<8) | (second>>0)) >> 7; 
+	*data = (((rx[0]&0x7F) <<8) | (rx[1]>>0)) >> 7; 
 #else    
-    *data = (((first&0x7F) <<8) | (second>>0)) >> 3; 
-#endif     
+    *data = (((rx[0]&0x7F) <<8) | (rx[1]>>0)) >> 3; 
+#endif 
+  
     CS_OFF;
 
     for(tmp = 0x10; tmp;tmp--);
@@ -200,7 +212,7 @@ static int16_t EvalCoord(uint16_t* pPoints, uint32_t PointNum, uint16_t MaxVal, 
    int16_t diff = 0, coord = 0;
    for(i = 0; i < PointNum; i++)
    {
-     if(pPoints[i] > MaxVal)
+     if(pPoints[i] >= MaxVal)
        return -1;
      
      if(i > 0)
@@ -213,6 +225,22 @@ static int16_t EvalCoord(uint16_t* pPoints, uint32_t PointNum, uint16_t MaxVal, 
    }
    
    return coord/PointNum;
+}
+/*********************************************************************//**
+ * @brief 		Calculate the coefficient of pressure 
+ * @param[in]	x			X-Coordinate
+ * @param[in]	y			Y-Coordinate
+ * @param[in]	z1			Z1-Coordinate
+ * @param[in]	z2			Z2-Coordinate
+ * @return 		coefficient.
+ **********************************************************************/
+static int16_t CalPressureCoef(int16_t x, int16_t y, int16_t z1, int16_t z2)
+{
+    int16_t z = -1;
+
+    z = x*(z2/z1 - 1);
+
+    return z;
 }
 /*********************************************************************//**
  * @brief 		convert the coord received from TSC to a value on truly LCD.
@@ -251,7 +279,7 @@ static int16_t ConvertCoord(int16_t Coord, int16_t MinVal, int16_t MaxVal, int16
 void GetTouchCoord(int16_t *pX, int16_t* pY)
 {
 	uint16_t i, tmp;
-    int16_t coord, x=-1, y=-1;
+    int16_t coord, x=-1, y=-1, z1=-1, z2=-1, z;
 
     coord = 0;
     // Get X-Coordinate
@@ -263,6 +291,8 @@ void GetTouchCoord(int16_t *pX, int16_t* pY)
 	coord = EvalCoord(X_Points,COORD_GET_NUM,TSC2046_X_COORD_MAX,TSC2046_DELTA_X_VARIANCE);
     if(coord > 0)
       x = coord;
+    else
+      return;
 
     // Get Y-Coordinate
 	for(i = 0; i < COORD_GET_NUM; i++)
@@ -273,7 +303,37 @@ void GetTouchCoord(int16_t *pX, int16_t* pY)
 	coord = EvalCoord(Y_Points,COORD_GET_NUM,TSC2046_Y_COORD_MAX,TSC2046_DELTA_Y_VARIANCE);
     if(coord > 0)
       y = coord;
-	
+    else
+      return;
+
+    // Get Z1-Coordinate
+	for(i = 0; i < COORD_GET_NUM; i++)
+	{
+		ReadWriteTSC2046(Z1_MEASURE,&tmp);
+        Z1_Points[i] = tmp;
+	}
+	coord = EvalCoord(Z1_Points,COORD_GET_NUM,TSC2046_Z1_COORD_MAX,TSC2046_DELTA_Z1_VARIANCE);
+    if(coord > 0)
+      z1 = coord;
+    else
+      return;
+
+    // Get Z2-Coordinate
+	for(i = 0; i < COORD_GET_NUM; i++)
+	{
+		ReadWriteTSC2046(Z2_MEASURE,&tmp);
+        Z2_Points[i] = tmp;
+	}
+	coord = EvalCoord(Z2_Points,COORD_GET_NUM,TSC2046_Z2_COORD_MAX,TSC2046_DELTA_Z2_VARIANCE);
+    if(coord > 0)
+      z2 = coord;
+    else
+      return;
+
+    z = CalPressureCoef(x,y,z1,z2);
+    if((z < 0) || (z > 11000))
+       return;
+
     // Swap, adjust to truly size of LCD
     if((x >= 0) && (y >= 0))
     {
@@ -288,8 +348,9 @@ void GetTouchCoord(int16_t *pX, int16_t* pY)
             *pY = ConvertCoord(y,TSC_Config.ad_left,TSC_Config.ad_right,TSC_Config.lcd_h_size);
         }
     }
+    EnableTS();
 }
 #endif
-#endif  /*_CUR_USING_LCD == _RUNNING_LCD_QVGA_TFT)*/
+#endif  /*((_CUR_USING_LCD == _RUNNING_LCD_QVGA_TFT) ||(_CUR_USING_LCD == _RUNNING_LCD_EA_REV_PB1))*/
 
 

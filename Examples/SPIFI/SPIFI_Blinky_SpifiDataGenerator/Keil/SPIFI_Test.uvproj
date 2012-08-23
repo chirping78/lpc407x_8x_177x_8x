@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>FLASH</TargetName>
+      <TargetName>FLASH_M3</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -43,14 +43,14 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\Flash\</OutputDirectory>
+          <OutputDirectory>.\Flash_M3\</OutputDirectory>
           <OutputName>Gpio_LedBlinky</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath>.\Flash\</ListingPath>
+          <ListingPath>.\Flash_M3\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -151,7 +151,7 @@
             <CpuDllArguments></CpuDllArguments>
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
-            <InitializationFile>.\Flash.ini</InitializationFile>
+            <InitializationFile></InitializationFile>
             <Driver>BIN\UL2CM3.DLL</Driver>
           </TargetDlls>
         </DebugOption>
@@ -344,6 +344,7 @@
             <Rwpi>0</Rwpi>
             <wLevel>2</wLevel>
             <uThumb>0</uThumb>
+            <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define>USE_SPIFI_LIB CORE_M4</Define>
@@ -359,6 +360,7 @@
             <SplitLS>0</SplitLS>
             <SwStkChk>0</SwStkChk>
             <NoWarn>0</NoWarn>
+            <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -396,7 +398,7 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>CMSIS-CM3</GroupName>
+          <GroupName>CMSIS-CM3-CM4</GroupName>
           <Files>
             <File>
               <FileName>system_LPC407x_8x_177x_8x.c</FileName>
@@ -437,6 +439,7 @@
                 <Rwpi>2</Rwpi>
                 <wLevel>0</wLevel>
                 <uThumb>2</uThumb>
+                <uSurpInc>2</uSurpInc>
                 <VariousControls>
                   <MiscControls></MiscControls>
                   <Define></Define>
@@ -452,6 +455,7 @@
                 <SplitLS>2</SplitLS>
                 <SwStkChk>2</SwStkChk>
                 <NoWarn>2</NoWarn>
+                <uSurpInc>2</uSurpInc>
                 <VariousControls>
                   <MiscControls></MiscControls>
                   <Define></Define>
@@ -526,6 +530,7 @@
                 <Rwpi>2</Rwpi>
                 <wLevel>0</wLevel>
                 <uThumb>2</uThumb>
+                <uSurpInc>2</uSurpInc>
                 <VariousControls>
                   <MiscControls></MiscControls>
                   <Define></Define>
@@ -541,6 +546,7 @@
                 <SplitLS>2</SplitLS>
                 <SwStkChk>2</SwStkChk>
                 <NoWarn>2</NoWarn>
+                <uSurpInc>2</uSurpInc>
                 <VariousControls>
                   <MiscControls></MiscControls>
                   <Define></Define>
@@ -586,7 +592,7 @@
       </Groups>
     </Target>
     <Target>
-      <TargetName>RAM</TargetName>
+      <TargetName>RAM_M3</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -595,7 +601,7 @@
           <Vendor>NXP (founded by Philips)</Vendor>
           <Cpu>IRAM(0x10000000-0x1000FFFF) IRAM2(0x20000000-0x20007FFF) IROM(0-0x7FFFF) CLOCK(12000000) CPUTYPE("Cortex-M3")</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
-          <StartupFile>"STARTUP\NXP\LPC177x_8x\startup_LPC177x_8x.s" ("NXP LPC177x_8x Startup Code")</StartupFile>
+          <StartupFile>"STARTUP\NXP\LPC407x_8x_177x_8x\startup_LPC407x_8x_177x_8x.s" ("NXP LPC177x_8x Startup Code")</StartupFile>
           <FlashDriverDll>UL2CM3(-O463 -S0 -C0 -FO7 -FD10000000 -FC800 -FN1 -FF0LPC_IAP_512 -FS00 -FL080000)</FlashDriverDll>
           <DeviceId>5325</DeviceId>
           <RegisterFile>LPC177x_8x.H</RegisterFile>
@@ -613,8 +619,8 @@
           <BinPath></BinPath>
           <IncludePath></IncludePath>
           <LibPath></LibPath>
-          <RegisterFilePath>NXP\LPC177x_8x\</RegisterFilePath>
-          <DBRegisterFilePath>NXP\LPC177x_8x\</DBRegisterFilePath>
+          <RegisterFilePath>NXP\LPC407x_8x_177x_8x\</RegisterFilePath>
+          <DBRegisterFilePath>NXP\LPC407x_8x_177x_8x\</DBRegisterFilePath>
           <TargetStatus>
             <Error>0</Error>
             <ExitCodeStop>0</ExitCodeStop>
@@ -622,14 +628,14 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\RAM\</OutputDirectory>
+          <OutputDirectory>.\RAM_M3\</OutputDirectory>
           <OutputName>Gpio_LedBlinky</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath>.\RAM\</ListingPath>
+          <ListingPath>.\RAM_M3\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -923,11 +929,12 @@
             <Rwpi>0</Rwpi>
             <wLevel>2</wLevel>
             <uThumb>0</uThumb>
+            <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define>__RAM_MODE__</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\..\Drivers\include;..\..\..\..\BoardSupport;..\..\..\..\Core\CMSIS\Include;..\..\..\..\Core\Device\NXP\LPC177x_8x\Include</IncludePath>
+              <IncludePath>..\..\..\..\Drivers\include;..\..\..\..\BoardSupport;..\..\..\..\Core\CMSIS\Include;..\..\..\..\Core\Device\NXP\LPC407x_8x_177x_8x\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -938,6 +945,7 @@
             <SplitLS>0</SplitLS>
             <SwStkChk>0</SwStkChk>
             <NoWarn>0</NoWarn>
+            <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -975,7 +983,7 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>CMSIS-CM3</GroupName>
+          <GroupName>CMSIS-CM3-CM4</GroupName>
           <Files>
             <File>
               <FileName>system_LPC407x_8x_177x_8x.c</FileName>
@@ -1093,14 +1101,14 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\Flash\</OutputDirectory>
+          <OutputDirectory>.\Flash_M3\</OutputDirectory>
           <OutputName>Gpio_LedBlinky</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath>.\Flash\</ListingPath>
+          <ListingPath>.\Flash_M3\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -1201,7 +1209,7 @@
             <CpuDllArguments></CpuDllArguments>
             <PeripheralDll></PeripheralDll>
             <PeripheralDllArguments></PeripheralDllArguments>
-            <InitializationFile>.\Flash.ini</InitializationFile>
+            <InitializationFile></InitializationFile>
             <Driver>BIN\UL2CM3.DLL</Driver>
           </TargetDlls>
         </DebugOption>
@@ -1394,6 +1402,7 @@
             <Rwpi>0</Rwpi>
             <wLevel>2</wLevel>
             <uThumb>0</uThumb>
+            <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define>USE_SPIFI_LIB CORE_M4</Define>
@@ -1409,6 +1418,7 @@
             <SplitLS>0</SplitLS>
             <SwStkChk>0</SwStkChk>
             <NoWarn>0</NoWarn>
+            <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -1425,7 +1435,7 @@
             <useFile>0</useFile>
             <TextAddressRange>0x00000000</TextAddressRange>
             <DataAddressRange>0x10000000</DataAddressRange>
-            <ScatterFile>.\Flash\spifi_blinky.sct</ScatterFile>
+            <ScatterFile>.\Flash_M3\spifi_blinky.sct</ScatterFile>
             <IncludeLibs></IncludeLibs>
             <IncludeLibsPath></IncludeLibsPath>
             <Misc></Misc>
@@ -1446,7 +1456,7 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>CMSIS-CM3</GroupName>
+          <GroupName>CMSIS-CM3-CM4</GroupName>
           <Files>
             <File>
               <FileName>system_LPC407x_8x_177x_8x.c</FileName>
@@ -1487,6 +1497,7 @@
                 <Rwpi>2</Rwpi>
                 <wLevel>0</wLevel>
                 <uThumb>2</uThumb>
+                <uSurpInc>2</uSurpInc>
                 <VariousControls>
                   <MiscControls></MiscControls>
                   <Define></Define>
@@ -1502,6 +1513,7 @@
                 <SplitLS>2</SplitLS>
                 <SwStkChk>2</SwStkChk>
                 <NoWarn>2</NoWarn>
+                <uSurpInc>2</uSurpInc>
                 <VariousControls>
                   <MiscControls></MiscControls>
                   <Define></Define>
@@ -1576,6 +1588,7 @@
                 <Rwpi>2</Rwpi>
                 <wLevel>0</wLevel>
                 <uThumb>2</uThumb>
+                <uSurpInc>2</uSurpInc>
                 <VariousControls>
                   <MiscControls></MiscControls>
                   <Define></Define>
@@ -1591,6 +1604,7 @@
                 <SplitLS>2</SplitLS>
                 <SwStkChk>2</SwStkChk>
                 <NoWarn>2</NoWarn>
+                <uSurpInc>2</uSurpInc>
                 <VariousControls>
                   <MiscControls></MiscControls>
                   <Define></Define>

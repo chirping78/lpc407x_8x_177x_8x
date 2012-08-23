@@ -43,7 +43,7 @@
 
 
 #include "lpc_types.h"
-#include "lpc177x_8x_i2c.h"
+#include "lpc_i2c.h"
 
 
 #define PCA9532_I2CADDR		(0xC0)

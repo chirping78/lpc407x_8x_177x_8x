@@ -53,7 +53,7 @@
 #define DC_CMD   (GPIO_ClearValue(LCD_DC_PORT_NUM, (1<<LCD_DC_PIN_NUM))) 
 #define DC_DATA  (GPIO_SetValue(LCD_DC_PORT_NUM, (1<<LCD_DC_PIN_NUM))) 
 
-#define SSP_PORT (LPC_SSP0)
+#define SSP_PORT LCD_SSP_CTRL
 #define SSP_CLOCK 1000000
 
 /******************************************************************************
@@ -74,10 +74,17 @@ static void pinConfig(void)
   GPIO_SetDir(LCD_DC_PORT_NUM,(1<<LCD_DC_PIN_NUM),1);
 
   // PIN config SSP
+#ifdef CORE_M4
+  PINSEL_ConfigPin(5, 2, 2);
+  PINSEL_ConfigPin(5, 3, 2);
+  PINSEL_ConfigPin(5, 1, 2);
+  PINSEL_ConfigPin(5, 0, 2);
+#else
   PINSEL_ConfigPin(0, 15, 2);
   PINSEL_ConfigPin(0, 16, 2);
   PINSEL_ConfigPin(0, 17, 2);
   PINSEL_ConfigPin(0, 18, 2);
+#endif
 }
 
 /*********************************************************************//**

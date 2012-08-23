@@ -34,6 +34,7 @@
 #include "lpc_libcfg_default.h"
 #endif /* __BUILD_WITH_EXAMPLE__ */
 #ifdef _DBGFWK
+#include "bsp.h"
 #include "debug_frmwrk.h"
 #include "lpc_pinsel.h"
 
@@ -517,11 +518,11 @@ void debug_frmwrk_init(void)
 #elif (USED_UART_DEBUG_PORT == 1)
 	/*
 	 * Initialize UART1 pin connect
-	 * P0.15: TXD
-	 * P0.16: RXD
+	 * P2.0: U1_TXD
+	 * P2.1: U1_RXD
 	 */
-	PINSEL_ConfigPin(0, 15, 1);
-	PINSEL_ConfigPin(0, 16, 1);
+    PINSEL_ConfigPin(2,0,2);
+	PINSEL_ConfigPin(2,1,2);
 #elif (USED_UART_DEBUG_PORT == 2)
 	/*
 	 * Initialize UART2 pin connect

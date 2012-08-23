@@ -1,4 +1,0 @@
---cpu Cortex-M4.fp ".\ram\startup_lpc407x_8x_177x_8x.o" ".\ram\system_lpc407x_8x_177x_8x.o" ".\ram\debug_frmwrk.o" ".\ram\lpc_clkpwr.o" ".\ram\lpc_pinsel.o" ".\ram\lpc_uart.o" ".\ram\lpc_rtc.o" ".\ram\rtc_ev.o" --library_type=microlib --strict --scatter ".\RAM\Rtc_EV.sct" 
---summary_stderr --info summarysizes --map --xref --callgraph --symbols 
---info sizes --info totals --info unused --info veneers 
- --list ".\RAM\Rtc_EV.map" -o ".\RAM\Rtc_EV.axf"

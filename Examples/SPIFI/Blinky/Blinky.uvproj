@@ -43,14 +43,14 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\RAM\</OutputDirectory>
+          <OutputDirectory>.\RAM_M3\</OutputDirectory>
           <OutputName>Blinky</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath>.\RAM\</ListingPath>
+          <ListingPath>.\RAM_M3\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -344,6 +344,7 @@
             <Rwpi>0</Rwpi>
             <wLevel>0</wLevel>
             <uThumb>0</uThumb>
+            <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define>CORE_M4 __RAM_MODE__</Define>
@@ -359,6 +360,7 @@
             <SplitLS>0</SplitLS>
             <SwStkChk>0</SwStkChk>
             <NoWarn>0</NoWarn>
+            <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -417,6 +419,7 @@
                     <SplitLS>2</SplitLS>
                     <SwStkChk>2</SwStkChk>
                     <NoWarn>2</NoWarn>
+                    <uSurpInc>2</uSurpInc>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define>NO_CRP</Define>
@@ -501,6 +504,7 @@
                 <Rwpi>2</Rwpi>
                 <wLevel>0</wLevel>
                 <uThumb>2</uThumb>
+                <uSurpInc>2</uSurpInc>
                 <VariousControls>
                   <MiscControls></MiscControls>
                   <Define></Define>
@@ -516,6 +520,7 @@
                 <SplitLS>2</SplitLS>
                 <SwStkChk>2</SwStkChk>
                 <NoWarn>2</NoWarn>
+                <uSurpInc>2</uSurpInc>
                 <VariousControls>
                   <MiscControls></MiscControls>
                   <Define></Define>
@@ -587,14 +592,14 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\Flash\</OutputDirectory>
+          <OutputDirectory>.\Flash_M3\</OutputDirectory>
           <OutputName>Blinky</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
-          <ListingPath>.\Flash\</ListingPath>
+          <ListingPath>.\Flash_M3\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -888,6 +893,7 @@
             <Rwpi>0</Rwpi>
             <wLevel>0</wLevel>
             <uThumb>0</uThumb>
+            <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define>CORE_M4</Define>
@@ -903,6 +909,7 @@
             <SplitLS>0</SplitLS>
             <SwStkChk>0</SwStkChk>
             <NoWarn>0</NoWarn>
+            <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -1011,6 +1018,7 @@
                 <Rwpi>2</Rwpi>
                 <wLevel>0</wLevel>
                 <uThumb>2</uThumb>
+                <uSurpInc>2</uSurpInc>
                 <VariousControls>
                   <MiscControls></MiscControls>
                   <Define></Define>
@@ -1026,6 +1034,7 @@
                 <SplitLS>2</SplitLS>
                 <SwStkChk>2</SwStkChk>
                 <NoWarn>2</NoWarn>
+                <uSurpInc>2</uSurpInc>
                 <VariousControls>
                   <MiscControls></MiscControls>
                   <Define></Define>
@@ -1398,6 +1407,7 @@
             <Rwpi>0</Rwpi>
             <wLevel>0</wLevel>
             <uThumb>0</uThumb>
+            <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define>CORE_M4 USE_SPIFI_LIB</Define>
@@ -1413,6 +1423,7 @@
             <SplitLS>0</SplitLS>
             <SwStkChk>0</SwStkChk>
             <NoWarn>0</NoWarn>
+            <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
@@ -1506,6 +1517,7 @@
                     <Rwpi>2</Rwpi>
                     <wLevel>0</wLevel>
                     <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
                     <VariousControls>
                       <MiscControls></MiscControls>
                       <Define></Define>

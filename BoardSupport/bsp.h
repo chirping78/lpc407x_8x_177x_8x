@@ -43,6 +43,9 @@
 #ifndef __BSP_H
 #define __BSP_H
 
+// List the OEM Board that have been supported
+#define LPC1788_OEM_BOARD			(0)
+#define LPC4088_OEM_BOARD			(1)
 
 //List the board that have been supported
 /** Default board */
@@ -59,6 +62,14 @@
 /** Current using board definition */
 #define _CURR_USING_BRD				_EA_PA_BOARD
 
+/** Current using OEM Board definition */
+#if (_CURR_USING_BRD == _EA_PA_BOARD)
+#if CORE_M4
+#define _CURR_USING_OEM_BRD			(LPC4088_OEM_BOARD)
+#else
+#define _CURR_USING_OEM_BRD			(LPC1788_OEM_BOARD)
+#endif
+#endif /*(_CURR_USING_BRD == EA_PA_BOARD)*/
 
 //List the NandFlash that have been supported
 #define _RUNNING_NANDFLASH_NONE			(0)
@@ -170,11 +181,19 @@
 
 // LCD
 #define _CUR_USING_LCD                  (_RUNNING_LCD_QVGA_TFT)
+//#define _CUR_USING_LCD                  (_RUNNING_LCD_EA_REV_PB1)
 #define LCD_CS_PORT_NUM                 (0)
 #define LCD_CS_PIN_NUM                  (20)
 #define LCD_DC_PORT_NUM                 (0)
 #define LCD_DC_PIN_NUM                  (19)
 
+#if (_CURR_USING_OEM_BRD == LPC4088_OEM_BOARD)
+#define LCD_SSP_CTRL                    (LPC_SSP2)
+#define LCD_TS_SSP_CTRL                 (LPC_SSP2)
+#else
+#define LCD_SSP_CTRL                    (LPC_SSP0)
+#define LCD_TS_SSP_CTRL                 (LPC_SSP0)
+#endif
 #endif
 
 #if (_CURR_USING_BRD == _IAR_OLIMEX_BOARD)

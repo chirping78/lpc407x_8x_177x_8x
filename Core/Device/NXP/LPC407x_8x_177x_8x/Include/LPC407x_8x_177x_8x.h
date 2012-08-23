@@ -125,9 +125,6 @@ typedef enum IRQn
 
 #endif
 
-#include "system_LPC407x_8x_177x_8x.h"                      /*!< LPC408x_7x System                                                     */
-
-
 
 
 

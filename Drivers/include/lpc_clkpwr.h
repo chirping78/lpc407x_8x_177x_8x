@@ -3,7 +3,8 @@
 *//**
 * @file		lpc_clkpwr.h
 * @brief	Contains all macro definitions and function prototypes
-*			support for Clock and Power Control firmware library on LPC
+*			support for Clock and Power Control firmware library on 
+*			LPC
 * @version	1.0
 * @date		02. June. 2011
 * @author	NXP MCU SW Application Team
@@ -207,7 +208,7 @@ extern "C"
  * @}
  */
  
-/* External clock variable from system_LPC.h */
+/* External clock variable from system_LPC407x_8x_177x_8x.h */
 extern uint32_t SystemCoreClock;     /*!< System Clock Frequency (Core Clock)  	*/
 extern uint32_t PeripheralClock;	 /*!< Peripheral Clock Frequency (Pclk) 	*/
 extern uint32_t EMCClock;		 /*!< EMC Clock Frequency                   	*/
