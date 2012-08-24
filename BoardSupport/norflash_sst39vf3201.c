@@ -94,6 +94,8 @@ void NORFLASHInit( void )
 	//delay time
  	TIM_Waitms(10);
 
+    // EMC Shift Control
+    LPC_SC->SCS       |= 1;
   	return;
 }
 
