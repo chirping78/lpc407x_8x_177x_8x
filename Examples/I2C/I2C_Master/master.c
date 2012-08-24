@@ -46,7 +46,7 @@
 
 /************************** PRIVATE DEFINITIONS *************************/
 /** Used I2C device as master definition */
-#define I2CDEV_M		(2)
+#define I2CDEV_M		(0)
 /** Slave address*/
 #define I2CDEV_S_ADDR	(0x90>>1)
 /** Transfer Mode */
@@ -210,7 +210,7 @@ int c_entry(void)
 	PINSEL_SetPinMode(0, 10, PINSEL_BASICMODE_PLAINOUT);
 	PINSEL_SetPinMode(0, 11, PINSEL_BASICMODE_PLAINOUT);
 #else
-	while(1);
+	#error "Please choose the correct peripheral."
 #endif
 
 	// Initialize Slave I2C peripheral

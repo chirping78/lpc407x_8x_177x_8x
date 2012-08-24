@@ -524,6 +524,15 @@ void debug_frmwrk_init(void)
     PINSEL_ConfigPin(2,0,2);
 	PINSEL_ConfigPin(2,1,2);
 #elif (USED_UART_DEBUG_PORT == 2)
+#if (_CURR_USING_OEM_BRD == LPC4088_OEM_BOARD)
+    /*
+	 * Initialize UART2 pin connect
+	 * P4.22: U2_TXD
+	 * P4.23: U2_RXD
+	 */
+	PINSEL_ConfigPin(4,22,2);
+	PINSEL_ConfigPin(4,23,2);
+#else
 	/*
 	 * Initialize UART2 pin connect
 	 * P0.10: TXD
@@ -531,6 +540,7 @@ void debug_frmwrk_init(void)
 	 */
 	PINSEL_ConfigPin(0, 10, 1);
 	PINSEL_ConfigPin(0, 11, 1);
+#endif	
 #elif (USED_UART_DEBUG_PORT == 3)
 	/*
 	 * Initialize UART3 pin connect

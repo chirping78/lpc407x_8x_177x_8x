@@ -216,7 +216,7 @@ int c_entry(void)
 	PINSEL_SetPinMode(0, 10, PINSEL_BASICMODE_PLAINOUT);
 	PINSEL_SetPinMode(0, 11, PINSEL_BASICMODE_PLAINOUT);
 #else
-	while(1);
+	#error "Please choose the correct peripheral."
 #endif
 
 	// Initialize Slave I2C peripheral
