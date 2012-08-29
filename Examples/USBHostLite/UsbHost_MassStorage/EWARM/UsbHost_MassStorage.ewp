@@ -3700,7 +3700,7 @@
       <name>$PROJ_DIR$\..\..\..\..\Drivers\source\lpc_uart.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\Drivers\source\lpc_usbhost.c</name>
+      <name>$PROJ_DIR$\..\lpc_usbhost.c</name>
     </file>
   </group>
   <group>

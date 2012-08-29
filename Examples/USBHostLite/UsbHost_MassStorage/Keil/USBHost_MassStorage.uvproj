@@ -468,7 +468,7 @@
             <File>
               <FileName>lpc_usbhost.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\Drivers\source\lpc_usbhost.c</FilePath>
+              <FilePath>..\lpc_usbhost.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -946,7 +946,7 @@
             <File>
               <FileName>lpc_usbhost.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\Drivers\source\lpc_usbhost.c</FilePath>
+              <FilePath>..\lpc_usbhost.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1424,7 +1424,7 @@
             <File>
               <FileName>lpc_usbhost.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\Drivers\source\lpc_usbhost.c</FilePath>
+              <FilePath>..\lpc_usbhost.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1902,7 +1902,7 @@
             <File>
               <FileName>lpc_usbhost.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\..\Drivers\source\lpc_usbhost.c</FilePath>
+              <FilePath>..\lpc_usbhost.c</FilePath>
             </File>
           </Files>
         </Group>

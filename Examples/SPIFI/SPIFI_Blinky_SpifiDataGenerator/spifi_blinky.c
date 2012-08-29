@@ -15,12 +15,12 @@
 #include "spifi_delay.h"
 
 /******************************************************************************
-** Function name:		spifi_blinky
+** Function name:       spifi_blinky
 **
-** Descriptions:		spifi blinky
+** Descriptions:        spifi blinky
 **
-** parameters:			None
-** Returned value:		None
+** parameters:          None
+** Returned value:      None
 ** 
 ******************************************************************************/
 void spifi_blinky(void)
@@ -32,11 +32,11 @@ void spifi_blinky(void)
  //   for(i = 0; i < 4; i++)
    // {
       LPC_GPIO1->SET = 1 << 18;
-		for(i = 10000000; i > 0; i--);
+        for(i = 10000000; i > 0; i--);
 //      spifi_delay();
     //}
     LPC_GPIO1->CLR = 1 << 18;
-		for(i = 10000000; i > 0; i--);
+        for(i = 10000000; i > 0; i--);
 //    spifi_delay();
   }
 }

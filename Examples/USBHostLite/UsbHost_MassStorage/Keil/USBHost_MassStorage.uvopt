@@ -884,7 +884,7 @@
       <TopLine>0</TopLine>
       <CurrentLine>0</CurrentLine>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\..\Drivers\source\lpc_usbhost.c</PathWithFileName>
+      <PathWithFileName>..\lpc_usbhost.c</PathWithFileName>
       <FilenameWithoutPath>lpc_usbhost.c</FilenameWithoutPath>
     </File>
   </Group>

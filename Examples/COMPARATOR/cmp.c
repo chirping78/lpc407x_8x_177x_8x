@@ -25,12 +25,12 @@
 /* statistics of all the interrupts */
 
 /*****************************************************************************
-** Function name:		CMP0_IRQHandler
+** Function name:       CMP0_IRQHandler
 **
-** Descriptions:		Comparator 0 interrupt handler
+** Descriptions:        Comparator 0 interrupt handler
 **
-** parameters:			None
-** Returned value:		None
+** parameters:          None
+** Returned value:      None
 ** 
 *****************************************************************************/
 void CMP0_IRQHandler(void) 
@@ -50,12 +50,12 @@ void CMP0_IRQHandler(void)
 }
 
 /*****************************************************************************
-** Function name:		CMP1_IRQHandler
+** Function name:       CMP1_IRQHandler
 **
-** Descriptions:		Comparator 1 interrupt handler
+** Descriptions:        Comparator 1 interrupt handler
 **
-** parameters:			None
-** Returned value:		None
+** parameters:          None
+** Returned value:      None
 ** 
 *****************************************************************************/
 void CMP1_IRQHandler(void) 
@@ -75,12 +75,12 @@ void CMP1_IRQHandler(void)
 }
 
 /*****************************************************************************
-** Function name:		CMP_IOConfig
+** Function name:       CMP_IOConfig
 **
-** Descriptions:		CMP port initialization routine
-**				
-** parameters:			None
-** Returned value:		None
+** Descriptions:        CMP port initialization routine
+**              
+** parameters:          None
+** Returned value:      None
 ** 
 *****************************************************************************/
 void CMP_IOConfig( void )
@@ -115,21 +115,21 @@ void CMP_IOConfig( void )
 #if 0
   LPC_IOCON->P0_4   |= 5; /* CMP_ROSC   @ P0.4  */
 #endif
-  return;		
+  return;       
 }
 
 /*****************************************************************************
-** Function name:		CMP_Init
+** Function name:       CMP_Init
 **
-** Descriptions:		Comparator initialization routine
-**				
-** parameters:			None
-** Returned value:		None
+** Descriptions:        Comparator initialization routine
+**              
+** parameters:          None
+** Returned value:      None
 ** 
 *****************************************************************************/
 void CMP_Init( void )
 {
-  LPC_SC->PCONP1 |= (1 << 3);		//power on the comparator
+  LPC_SC->PCONP1 |= (1 << 3);       //power on the comparator
 
   LPC_SC->RSTCON1 |= (1 << 3);  // reset the comparator
 
@@ -141,12 +141,12 @@ void CMP_Init( void )
 }
 
 /*****************************************************************************
-** Function name:		CMP_SelectInput
+** Function name:       CMP_SelectInput
 **
-** Descriptions:		Select comparator input channel
+** Descriptions:        Select comparator input channel
 **
-** parameters:			num, power, channel, input
-** Returned value:		None
+** parameters:          num, power, channel, input
+** Returned value:      None
 ** 
 *****************************************************************************/
 void CMP_SelectInput( uint32_t num, uint32_t power, uint32_t channel, uint32_t input )
@@ -163,7 +163,7 @@ void CMP_SelectInput( uint32_t num, uint32_t power, uint32_t channel, uint32_t i
       break;
       case CMP_VM: //negative Input
         LPC_COMPARATOR->CTRL0 &= ~(7 << 4); // this seems selects Vref divider 0, this makes [6:4]=0
-        LPC_COMPARATOR->CTRL0 |= ((0x7 & input) << 4);		//this sets the selected input
+        LPC_COMPARATOR->CTRL0 |= ((0x7 & input) << 4);      //this sets the selected input
       break;
       default:
       break;
@@ -173,13 +173,13 @@ void CMP_SelectInput( uint32_t num, uint32_t power, uint32_t channel, uint32_t i
   {
     LPC_COMPARATOR->CTRL1 &= ~(0x3 << 0);
     LPC_COMPARATOR->CTRL1 |= ((0x3 & power) << 0);
-			
+            
     switch ( channel )
     {
       case CMP_VP:
         LPC_COMPARATOR->CTRL1 &= ~(7 << 8);
         LPC_COMPARATOR->CTRL1 |= ((0x7 & input) << 8);
-			
+            
       break;
       case CMP_VM:
         LPC_COMPARATOR->CTRL1 &= ~(7 << 4);
@@ -194,12 +194,12 @@ void CMP_SelectInput( uint32_t num, uint32_t power, uint32_t channel, uint32_t i
 }
 
 /*****************************************************************************
-** Function name:		CMP_SelectReference
+** Function name:       CMP_SelectReference
 **
-** Descriptions:		Select comparator voltage reference
+** Descriptions:        Select comparator voltage reference
 **
-** parameters:			num, vref, level
-** Returned value:		None
+** parameters:          num, vref, level
+** Returned value:      None
 ** 
 *****************************************************************************/
 void CMP_SelectReference( uint32_t num, uint32_t power, uint32_t vref, uint32_t level )
@@ -238,12 +238,12 @@ void CMP_SelectReference( uint32_t num, uint32_t power, uint32_t vref, uint32_t 
 }
 
 /*****************************************************************************
-** Function name:		CMP_SetOutput
+** Function name:       CMP_SetOutput
 **
-** Descriptions:		Set output enable, sync
+** Descriptions:        Set output enable, sync
 **
-** parameters:			num, enable, sync
-** Returned value:		None
+** parameters:          num, enable, sync
+** Returned value:      None
 ** 
 *****************************************************************************/
 void CMP_SetOutput( uint32_t num, uint32_t enable, uint32_t sync )
@@ -290,12 +290,12 @@ void CMP_SetOutput( uint32_t num, uint32_t enable, uint32_t sync )
 }
 
 /*****************************************************************************
-** Function name:		CMP_SetInterrupt
+** Function name:       CMP_SetInterrupt
 **
-** Descriptions:		Set interrupt polarity, type, edge.
+** Descriptions:        Set interrupt polarity, type, edge.
 **
-** parameters:			num, inverted, edge, event
-** Returned value:		None
+** parameters:          num, inverted, edge, event
+** Returned value:      None
 ** 
 *****************************************************************************/
 void CMP_SetInterrupt( uint32_t num, uint32_t inverted, uint32_t level, uint32_t edge )
@@ -303,22 +303,22 @@ void CMP_SetInterrupt( uint32_t num, uint32_t inverted, uint32_t level, uint32_t
   if ( num == 0 )
   {
     NVIC_DisableIRQ(CMP0_IRQn);
-		
+        
     if ( inverted == 0 )
     {
-	  LPC_COMPARATOR->CTRL0 &= ~(1 << 15);
+      LPC_COMPARATOR->CTRL0 &= ~(1 << 15);
     }
     else
     {
-	  LPC_COMPARATOR->CTRL0 |= (1 << 15);
+      LPC_COMPARATOR->CTRL0 |= (1 << 15);
     }
     if ( level == 0 )
     {
-	  LPC_COMPARATOR->CTRL0 &= ~(1 << 16);
+      LPC_COMPARATOR->CTRL0 &= ~(1 << 16);
     }
     else
     {
-	  LPC_COMPARATOR->CTRL0 |= (1 << 16);
+      LPC_COMPARATOR->CTRL0 |= (1 << 16);
     }
     LPC_COMPARATOR->CTRL0 &= ~(0x3 << 17);
     LPC_COMPARATOR->CTRL0 |= ((0x3 & edge) << 17);
@@ -329,45 +329,45 @@ void CMP_SetInterrupt( uint32_t num, uint32_t inverted, uint32_t level, uint32_t
   else if ( num == 1 )
   {
     NVIC_DisableIRQ(CMP1_IRQn);
-		
+        
     if ( inverted == 0 )
     {
-	  LPC_COMPARATOR->CTRL1 &= ~(1 << 15);
+      LPC_COMPARATOR->CTRL1 &= ~(1 << 15);
     }
-		
+        
     else
     {
-	  LPC_COMPARATOR->CTRL1 |= (1 << 15);
+      LPC_COMPARATOR->CTRL1 |= (1 << 15);
     }
-		
+        
     if ( level == 0 )
     {
-	  LPC_COMPARATOR->CTRL1 &= ~(1 << 16);
+      LPC_COMPARATOR->CTRL1 &= ~(1 << 16);
     }
     else
     {
-	  LPC_COMPARATOR->CTRL1 |= (1 << 16);
+      LPC_COMPARATOR->CTRL1 |= (1 << 16);
     }
-		
+        
     LPC_COMPARATOR->CTRL1 &= ~(0x3 << 17);
     LPC_COMPARATOR->CTRL1 |= ((0x3 & edge) << 17);
     LPC_COMPARATOR->CTRL1 |= (1 << 19);
-		
+        
     NVIC_ClearPendingIRQ(CMP1_IRQn);
-		
+        
     NVIC_EnableIRQ(CMP1_IRQn); 
-		
+        
   }
   return;
 }
 
 /*****************************************************************************
-** Function name:		CMP_SetHysteresis
+** Function name:       CMP_SetHysteresis
 **
-** Descriptions:		Set hysteresis
+** Descriptions:        Set hysteresis
 **
-** parameters:			num, level
-** Returned value:		None
+** parameters:          num, level
+** Returned value:      None
 ** 
 *****************************************************************************/
 void CMP_SetHysteresis( uint32_t num, uint32_t level )
@@ -386,12 +386,12 @@ void CMP_SetHysteresis( uint32_t num, uint32_t level )
 }
 
 /*****************************************************************************
-** Function name:		CMP_GetOutputStatus
+** Function name:       CMP_GetOutputStatus
 **
-** Descriptions:		Get output status
+** Descriptions:        Get output status
 **
-** parameters:			num
-** Returned value:		Output status
+** parameters:          num
+** Returned value:      Output status
 ** 
 *****************************************************************************/
 uint32_t CMP_GetOutputStatus( uint32_t num )
@@ -410,12 +410,12 @@ uint32_t CMP_GetOutputStatus( uint32_t num )
 }
 
 /*****************************************************************************
-** Function name:		CMP_ConnectCapture
+** Function name:       CMP_ConnectCapture
 **
-** Descriptions:		Connect timer capture to comparator output
+** Descriptions:        Connect timer capture to comparator output
 **
-** parameters:			num, capture
-** Returned value:		None
+** parameters:          num, capture
+** Returned value:      None
 ** 
 *****************************************************************************/
 void CMP_ConnectCapture( uint32_t capture, uint32_t select )
@@ -469,12 +469,12 @@ void CMP_ConnectCapture( uint32_t capture, uint32_t select )
 }
 
 /*****************************************************************************
-** Function name:		ROSCControl
+** Function name:       ROSCControl
 **
-** Descriptions:		ROSC Control
+** Descriptions:        ROSC Control
 **
-** parameters:			input, reset
-** Returned value:		None
+** parameters:          input, reset
+** Returned value:      None
 ** 
 *****************************************************************************/
 void CMP_ROSCControl( uint32_t input, uint32_t reset )
@@ -499,12 +499,12 @@ void CMP_ROSCControl( uint32_t input, uint32_t reset )
 }
 
 /*****************************************************************************
-** Function name:		CMP_TempSenControl
+** Function name:       CMP_TempSenControl
 **
-** Descriptions:		Temp Sensor Control
+** Descriptions:        Temp Sensor Control
 **
-** parameters:			enable, power
-** Returned value:		None
+** parameters:          enable, power
+** Returned value:      None
 ** 
 *****************************************************************************/
 void CMP_TempSenControl( uint32_t enable, uint32_t power )
@@ -517,12 +517,12 @@ void CMP_TempSenControl( uint32_t enable, uint32_t power )
 }
 
 /*****************************************************************************
-** Function name:		CMP_BangapControl
+** Function name:       CMP_BangapControl
 **
-** Descriptions:		Band Gap Control
+** Descriptions:        Band Gap Control
 **
-** parameters:			enable
-** Returned value:		None
+** parameters:          enable
+** Returned value:      None
 ** 
 *****************************************************************************/
 void CMP_BangapControl( uint32_t enable )
@@ -533,12 +533,12 @@ void CMP_BangapControl( uint32_t enable )
 }
 
 /*****************************************************************************
-** Function name:		CMP_CurrentSrcControl
+** Function name:       CMP_CurrentSrcControl
 **
-** Descriptions:		Current Source Control
+** Descriptions:        Current Source Control
 **
-** parameters:			power
-** Returned value:		None
+** parameters:          power
+** Returned value:      None
 ** 
 *****************************************************************************/
 void CMP_CurrentSrcControl( uint32_t power )

@@ -14,12 +14,12 @@
 #include "spifi_delay.h"
 
 /******************************************************************************
-** Function name:		spifi_blinky
+** Function name:       spifi_blinky
 **
-** Descriptions:		spifi blinky
+** Descriptions:        spifi blinky
 **
-** parameters:			None
-** Returned value:		None
+** parameters:          None
+** Returned value:      None
 ** 
 ******************************************************************************/
 void spifi_delay(void)

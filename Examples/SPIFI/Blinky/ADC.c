@@ -64,7 +64,7 @@ uint16_t ADC_GetCnv (void) {
 void ADC_IRQHandler(void) {
   volatile uint32_t adstat;
 
-  adstat = LPC_ADC->STAT;		                 /* Read ADC clears interrupt     */
+  adstat = LPC_ADC->STAT;                        /* Read ADC clears interrupt     */
 
   AD_last = (LPC_ADC->GDR >> 4) & ADC_VALUE_MAX;   /* Store converted value   */
 

@@ -1,11 +1,11 @@
 /**********************************************************************
-* $Id$		Spifi_ReadWrite.c	2012-01-16
+* $Id$      Spifi_ReadWrite.c   2012-01-16
 *//**
-* @file		Spifi_ReadWrite.c
-* @brief	This example describes how to use GPIO to drive LEDs
-* @version	1.0
-* @date		16. January. 2012
-* @author	NXP MCU SW Application Team
+* @file     Spifi_ReadWrite.c
+* @brief    This example describes how to use GPIO to drive LEDs
+* @version  1.0
+* @date     16. January. 2012
+* @author   NXP MCU SW Application Team
 *
 * Copyright(C) 2012, NXP Semiconductor
 * All rights reserved.
@@ -32,15 +32,15 @@
 #include <string.h>
 
 /* Example group ----------------------------------------------------------- */
-/** @defgroup Spifi_ReadWrite	Spifi_ReadWrite
+/** @defgroup Spifi_ReadWrite   Spifi_ReadWrite
  * @ingroup SPIFI_Examples
  * @{
  */
 
 
 /************************** PRIVATE DEFINITIONS *************************/
-#define LED1_BIT			1 //LEDUSB
-#define LED1_PORT			4
+#define LED1_BIT            1 //LEDUSB
+#define LED1_PORT           4
 //#define SPIFI_BASE                  0x28000000
 
 /************************** PRIVATE VARIABLES *************************/
@@ -92,12 +92,12 @@ const uint8_t spifi_blinky_test[] = {
 0x4F, 0xF4, 0x80, 0x20,  0x8C, 0x49,  0x88, 0x63, 0xC8, 0x63};
 
 /******************************************************************************
-** Function name:		led_blinky
+** Function name:       led_blinky
 **
-** Descriptions:		led blinky
+** Descriptions:        led blinky
 **
-** parameters:			None
-** Returned value:		None
+** parameters:          None
+** Returned value:      None
 ** 
 ******************************************************************************/
 void led_blinky(void)
@@ -123,65 +123,65 @@ void led_blinky2(void)
 }
 /*-------------------------PRIVATE FUNCTIONS------------------------------*/
 /*********************************************************************//**
- * @brief		Print menu
- * @param[in]	None
- * @return 		None
+ * @brief       Print menu
+ * @param[in]   None
+ * @return      None
  **********************************************************************/
 void print_menu(void)
 {
-	_DBG(menu1);
+    _DBG(menu1);
 }
 
 /*----------------- INTERRUPT SERVICE ROUTINES --------------------------*/
 
-void spifi_io_clk_init (void) {	
-	LPC_SC->PCONP |= 0x00010000;
+void spifi_io_clk_init (void) { 
+    LPC_SC->PCONP |= 0x00010000;
 
-	LPC_IOCON->P2_7 &= ~0x07;
-	LPC_IOCON->P2_7 |= 0x05;	/* SPIFI_CSN @ P2.7 */
-	LPC_IOCON->P0_22 &= ~0x07;
-	LPC_IOCON->P0_22 |= 0x05;	/* SPIFI_CLK @ P0.22 */
-	LPC_IOCON->P0_15 &= ~0x07;
-	LPC_IOCON->P0_15 |= 0x5;	/* SPIFI_IO2 @ P0.15 */
-	LPC_IOCON->P0_16 &= ~0x07;
-	LPC_IOCON->P0_16 |= 0x5;	/* SPIFI_IO3 @ P0.16 */
-	LPC_IOCON->P0_17 &= ~0x07;
-	LPC_IOCON->P0_17 |= 0x5;	/* SPIFI_IO1 @ P0.17 */
-	LPC_IOCON->P0_18 &= ~0x07;
-	LPC_IOCON->P0_18 |= 0x5;	/* SPIFI_IO0 @ P0.18 */
+    LPC_IOCON->P2_7 &= ~0x07;
+    LPC_IOCON->P2_7 |= 0x05;    /* SPIFI_CSN @ P2.7 */
+    LPC_IOCON->P0_22 &= ~0x07;
+    LPC_IOCON->P0_22 |= 0x05;   /* SPIFI_CLK @ P0.22 */
+    LPC_IOCON->P0_15 &= ~0x07;
+    LPC_IOCON->P0_15 |= 0x5;    /* SPIFI_IO2 @ P0.15 */
+    LPC_IOCON->P0_16 &= ~0x07;
+    LPC_IOCON->P0_16 |= 0x5;    /* SPIFI_IO3 @ P0.16 */
+    LPC_IOCON->P0_17 &= ~0x07;
+    LPC_IOCON->P0_17 |= 0x5;    /* SPIFI_IO1 @ P0.17 */
+    LPC_IOCON->P0_18 &= ~0x07;
+    LPC_IOCON->P0_18 |= 0x5;    /* SPIFI_IO0 @ P0.18 */
 
-	return;
+    return;
 }
 
 /*-------------------------MAIN FUNCTION------------------------------*/
 /*********************************************************************//**
- * @brief		Main program body
- * @param[in]	None
- * @return 		int
+ * @brief       Main program body
+ * @param[in]   None
+ * @return      int
  **********************************************************************/
 
 int c_entry (void) {                       /* Main Program                       */
 
     uint32_t i;
-	volatile uint32_t error = 0;
+    volatile uint32_t error = 0;
 
-	spifi_io_clk_init();
+    spifi_io_clk_init();
 
-	/* Initialize debug via UART1
-	 * – 115200bps
-	 * – 8 data bit
-	 * – No parity
-	 * – 1 stop bit
-	 * – No flow control
-	 */
-	debug_frmwrk_init();
+    /* Initialize debug via UART1
+     * – 115200bps
+     * – 8 data bit
+     * – No parity
+     * – 1 stop bit
+     * – No flow control
+     */
+    debug_frmwrk_init();
 
-	GPIO_Init();
+    GPIO_Init();
 
-	GPIO_SetDir(BRD_LED_1_CONNECTED_PORT, BRD_LED_1_CONNECTED_MASK, GPIO_DIRECTION_OUTPUT);
+    GPIO_SetDir(BRD_LED_1_CONNECTED_PORT, BRD_LED_1_CONNECTED_MASK, GPIO_DIRECTION_OUTPUT);
 
-	// print welcome screen
-	print_menu();
+    // print welcome screen
+    print_menu();
 
 #ifdef USE_SPIFI_LIB
     pSpifi = &spifi_table;
@@ -189,67 +189,67 @@ int c_entry (void) {                       /* Main Program                      
     pSpifi = (SPIFI_RTNS *)(SPIFI_ROM_TABLE);
 #endif
 
-	_DBG("Initializing SPIFI driver...");
-	/* Initialize SPIFI driver */
-	error = pSpifi->spifi_init(&obj, 4, S_RCVCLK | S_FULLCLK, 60);
+    _DBG("Initializing SPIFI driver...");
+    /* Initialize SPIFI driver */
+    error = pSpifi->spifi_init(&obj, 4, S_RCVCLK | S_FULLCLK, 60);
 
-	if (error) while (1);
+    if (error) while (1);
 
-	_DBG("OK\r\nErasing QSPI device...");
-		/* Erase Entire SPIFI Device if required */
-	for ( i = 0 ; i < obj.memSize / 4; i+=4 )
-	{
-	    if ( *((uint32_t *)(obj.base+i)) != 0xFFFFFFFF )
-		{
-		    opers.dest = (char *)(obj.base);
-		    opers.length = obj.memSize;
-      	    opers.scratch = NULL;
-			opers.options = S_VERIFY_ERASE;
-		    /* Erase Device */
-			if (pSpifi->spifi_erase(&obj, &opers)) while (1);
-			break;
-		}
-	}
+    _DBG("OK\r\nErasing QSPI device...");
+        /* Erase Entire SPIFI Device if required */
+    for ( i = 0 ; i < obj.memSize / 4; i+=4 )
+    {
+        if ( *((uint32_t *)(obj.base+i)) != 0xFFFFFFFF )
+        {
+            opers.dest = (char *)(obj.base);
+            opers.length = obj.memSize;
+            opers.scratch = NULL;
+            opers.options = S_VERIFY_ERASE;
+            /* Erase Device */
+            if (pSpifi->spifi_erase(&obj, &opers)) while (1);
+            break;
+        }
+    }
 
-	_DBG("OK\r\nProgramming + verifying QSPI device...");
-	for(i=0;i<PROG_SIZE;i++)
-		ProgramData[i] = 0xFF;
+    _DBG("OK\r\nProgramming + verifying QSPI device...");
+    for(i=0;i<PROG_SIZE;i++)
+        ProgramData[i] = 0xFF;
 
-	for (i = 0; i < 10; i++)
+    for (i = 0; i < 10; i++)
   {
     ProgramData[i] = *(uint8_t *)&spifi_blinky_test[i];
   }
 
-	opers.length = PROG_SIZE;
-	opers.scratch = NULL;
-	opers.protect = 0;
-	opers.options = S_CALLER_ERASE;
-	for ( i = 0 ; i < obj.memSize / PROG_SIZE; i++ )
-	{
+    opers.length = PROG_SIZE;
+    opers.scratch = NULL;
+    opers.protect = 0;
+    opers.options = S_CALLER_ERASE;
+    for ( i = 0 ; i < obj.memSize / PROG_SIZE; i++ )
+    {
         /* Write */
-	    opers.dest = (char *)( obj.base + (i*PROG_SIZE) );
-	    if (pSpifi->spifi_program (&obj, (char *)ProgramData, &opers)) while (1);
-	    /* Verify */
-	    if (memcmp((void *)opers.dest,(void *)ProgramData,PROG_SIZE)) while (1);
-	}
-	_DBG("OK!\r\n");
+        opers.dest = (char *)( obj.base + (i*PROG_SIZE) );
+        if (pSpifi->spifi_program (&obj, (char *)ProgramData, &opers)) while (1);
+        /* Verify */
+        if (memcmp((void *)opers.dest,(void *)ProgramData,PROG_SIZE)) while (1);
+    }
+    _DBG("OK!\r\n");
 
-	// run blinky
-	GPIO_SetValue(LED1_PORT,(1<<LED1_BIT)); // Light LED
-	if(1)
-	{
-	led_blinky();
-	led_blinky();
-	spifi_blinky();
-	spifi_delay();
-	//led_blinky2();
-	}
-	entry_func = (ENTRY_FUNC)(obj.base+1);
+    // run blinky
+    GPIO_SetValue(LED1_PORT,(1<<LED1_BIT)); // Light LED
+    if(1)
+    {
+    led_blinky();
+    led_blinky();
+    spifi_blinky();
+    spifi_delay();
+    //led_blinky2();
+    }
+    entry_func = (ENTRY_FUNC)(obj.base+1);
   entry_func();
-	
-	while (1)
-	{                           					// Loop forever
-	}
+    
+    while (1)
+    {                                               // Loop forever
+    }
 }
 
 extern void fpu_init(void);
@@ -260,25 +260,25 @@ extern void fpu_init(void);
    file, and that startup code will setup stacks and data */
 int main(void)
 {
-	
+    
     return c_entry();
 }
 
 #ifdef  DEBUG
 /*******************************************************************************
-* @brief		Reports the name of the source file and the source line number
-* 				where the CHECK_PARAM error has occurred.
-* @param[in]	file Pointer to the source file name
+* @brief        Reports the name of the source file and the source line number
+*               where the CHECK_PARAM error has occurred.
+* @param[in]    file Pointer to the source file name
 * @param[in]    line assert_param error line source number
-* @return		None
+* @return       None
 *******************************************************************************/
 void check_failed(uint8_t *file, uint32_t line)
 {
-	/* User can add his own implementation to report the file name and line number,
-	 ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+    /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
 
-	/* Infinite loop */
-	while(1);
+    /* Infinite loop */
+    while(1);
 }
 #endif
 

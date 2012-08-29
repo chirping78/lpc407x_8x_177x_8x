@@ -41,29 +41,29 @@ int main (void)
   LPC_GPIO1->DIR |= 1 << 2;
   LPC_GPIO1->SET |= 1 << 2;
 
-  CMP_Init();			
+  CMP_Init();           
 
-  CMP_CurrentSrcControl( POWERUP );	           // Current Source powered
+  CMP_CurrentSrcControl( POWERUP );            // Current Source powered
 
 
   CMP_BangapControl( POWERUP );                // Band Gap powered
-	
+    
 
 
   CMP_TempSenControl( ENABLE, POWERUP );       // Temp Sensor enabled, powered
 
-  for (i = 0; i < 0x80; i++);					 // wait for comparators stablized
+  for (i = 0; i < 0x80; i++);                    // wait for comparators stablized
  
   CMP_SelectInput( 1, POWERUP, CMP_VP, 1 );    // CMP1, powered, VP -> CMP1_IN[2]
-	
+    
   CMP_SelectInput( 1, POWERUP, CMP_VM, 2 );    // CMP1, powered, VP -> CMP1_IN[1]
   CMP_SetHysteresis( 1, 0 );                   // CMP1, hysteresis : none
-	
+    
   CMP_SetOutput( 1, ENABLE, ASYNC );           // CMP1, enabled, async
-	for (i = 0; i < 0x80; i++);					 // wait for comparators stablized
+    for (i = 0; i < 0x80; i++);                  // wait for comparators stablized
 
-	
-	if (CMP_GetOutputStatus(1))
+    
+    if (CMP_GetOutputStatus(1))
     {
       LPC_GPIO1->SET |= 1 << 1;
     }
@@ -71,22 +71,22 @@ int main (void)
     {
       LPC_GPIO1->CLR |= 1 << 1;
     }
-		
+        
 
-	
-	for (i = 0; i < 0x80; i++);					 // wait for comparators stablized
-		
+    
+    for (i = 0; i < 0x80; i++);                  // wait for comparators stablized
+        
   CMP_SelectInput( 1, POWERUP, CMP_VP, 2 );    // CMP1, powered, VP -> CMP1_IN[2]
-			
-		for (i = 0; i < 0x80; i++);					 // wait for comparators stablized
-		
+            
+        for (i = 0; i < 0x80; i++);                  // wait for comparators stablized
+        
   CMP_SelectInput( 1, POWERUP, CMP_VM, 1 );    // CMP1, powered, VP -> CMP1_IN[1]
   CMP_SetHysteresis( 1, 0 );                   // CMP1, hysteresis : none
   CMP_SetOutput( 1, ENABLE, ASYNC );           // CMP1, enabled, async
- for (i = 0; i < 0x80; i++);					 // wait for comparators stablized
+ for (i = 0; i < 0x80; i++);                     // wait for comparators stablized
 
-		
-	if (CMP_GetOutputStatus(1))
+        
+    if (CMP_GetOutputStatus(1))
     {
       LPC_GPIO1->SET |= 1 << 1;
     }
@@ -95,9 +95,9 @@ int main (void)
       LPC_GPIO1->CLR |= 1 << 1;
     }
 
-	while(1);	
-		
-		
+    while(1);   
+        
+        
 
   }
 
