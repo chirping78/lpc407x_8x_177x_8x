@@ -187,6 +187,8 @@ typedef __packed struct _CDC_HEADER_DESCRIPTOR {
 #elif defined   (  __GNUC__  )
 typedef struct __packed _CDC_HEADER_DESCRIPTOR {
 #elif defined   (  __IAR_SYSTEMS_ICC__  )
+#pragma language=save
+#pragma language=extended
 typedef __packed struct _CDC_HEADER_DESCRIPTOR {
 #endif
   uint8_t bFunctionLength;                     // size of this descriptor in bytes
@@ -278,6 +280,9 @@ typedef __packed struct _CDC_LINE_CODING {
 // see  USB_SETUP_PACKET in file usb.h
 typedef USB_SETUP_PACKET CDC_NOTIFICATION_HEADER;
 
+#if defined   (  __IAR_SYSTEMS_ICC__  )
+#pragma language=restore
+#endif
 
 /**
  * @}

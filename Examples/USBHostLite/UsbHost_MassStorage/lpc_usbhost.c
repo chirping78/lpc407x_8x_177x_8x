@@ -98,8 +98,8 @@ void        Host_WDHWait  (void);
 
 
 /*********************************************************************//**
- * @brief           delay in milli seconds
- * @param[in]       delay    The delay required (in milliseconds)
+ * @brief       delay in milli seconds
+ * @param[in]   delay    The delay required (in milliseconds)
  * @return      None.
  **********************************************************************/
 void  Host_DelayMS (uint32_t  delay)
@@ -113,8 +113,8 @@ void  Host_DelayMS (uint32_t  delay)
 }
 
 /*********************************************************************//**
- * @brief           delay in micro seconds
- * @param[in]       delay    The delay required (in microseconds)
+ * @brief       delay in micro seconds
+ * @param[in]   delay    The delay required (in microseconds)
  * @return      None.
  **********************************************************************/
 void  Host_DelayUS (uint32_t  delay)
@@ -128,8 +128,8 @@ void  Host_DelayUS (uint32_t  delay)
 }
 
 /*********************************************************************//**
- * @brief           Init OTG host controller.
- * @param[in]       None.
+ * @brief       Init OTG host controller.
+ * @param[in]   None.
  * @return      None.
  **********************************************************************/
 void Host_CtrlInit(void)
@@ -184,8 +184,8 @@ void Host_CtrlInit(void)
 }
 
 /*********************************************************************//**
- * @brief           Init host controller.
- * @param[in]       None.
+ * @brief       Init host controller.
+ * @param[in]   None.
  * @return      None.
  **********************************************************************/
 void  Host_Init (void)
@@ -253,8 +253,8 @@ void  Host_Init (void)
 }
 
 /*********************************************************************//**
- * @brief           services the interrupt caused by host controller.
- * @param[in]       None.
+ * @brief       services the interrupt caused by host controller.
+ * @param[in]   None.
  * @return      None.
  **********************************************************************/
 void  USB_IRQHandler (void)
@@ -344,8 +344,8 @@ void  USB_IRQHandler (void)
 }
 
 /*********************************************************************//**
- * @brief           enumerate the device connected.
- * @param[in]       None.
+ * @brief       enumerate the device connected.
+ * @param[in]   None.
  * @return      None.
  **********************************************************************/
 int32_t  Host_EnumDev (void)
@@ -407,10 +407,10 @@ int32_t  Host_EnumDev (void)
 }
 
 /*********************************************************************//**
- * @brief           parse the configuration.
- * @param[in]       None.
- * @return      OK                    if Success.
- *                         ERR_BAD_CONFIGURATION    Failed in case of bad configuration.
+ * @brief       parse the configuration.
+ * @param[in]   None.
+ * @return      OK     if Success.
+ *              ERR_BAD_CONFIGURATION    Failed in case of bad configuration.
  *              ERR_NO_MS_INTERFACE   Failed in case of no MS interface.
  **********************************************************************/
 int32_t  Host_ParseConfiguration (void)
@@ -473,8 +473,8 @@ int32_t  Host_ParseConfiguration (void)
     }
 }
 /*********************************************************************//**
- * @brief           Get the type of the USB which is being connected.
- * @param[in]       None.
+ * @brief       Get the type of the USB which is being connected.
+ * @param[in]   None.
  * @return      USB_DEVICE_TYPE value
  **********************************************************************/
 USB_DEVICE_TYPE Host_GetDeviceType(void)
@@ -483,11 +483,11 @@ USB_DEVICE_TYPE Host_GetDeviceType(void)
 }
 
 /*********************************************************************//**
- * @brief           processes the transfer descriptor.
- * @param[in]       ed            Endpoint descriptor that contains this transfer descriptor.
- * @param[in]        token         SETUP, IN, OUT
- * @param[in]        buffer        Current Buffer Pointer of the transfer descriptor
- * @param[in]        buffer_len    Length of the buffer
+ * @brief       processes the transfer descriptor.
+ * @param[in]   ed            Endpoint descriptor that contains this transfer descriptor.
+ * @param[in]   token         SETUP, IN, OUT
+ * @param[in]   buffer        Current Buffer Pointer of the transfer descriptor
+ * @param[in]   buffer_len    Length of the buffer
  * @return      USB_HOST_FUNC_OK       if TD submission is successful.
  *                          ERROR    if TD submission fails
  **********************************************************************/
@@ -548,12 +548,12 @@ int32_t  Host_ProcessTD (volatile  HCED       *ed,
 /*********************************************************************//**
  * @brief           receive the control information.
  * @param[in]       bm_request_type.
- * @param[in]        b_request
- * @param[in]        w_value
+ * @param[in]       b_request
+ * @param[in]       w_value
  * @param[in]       w_index
  * @param[in]       w_length
  * @param[in]       buffer
- * @return      USB_HOST_FUNC_OK       if Success
+ * @return          USB_HOST_FUNC_OK       if Success
  *                          ERROR    if Failed
  **********************************************************************/
 int32_t  Host_CtrlRecv (         uint8_t   bm_request_type,
@@ -582,12 +582,12 @@ int32_t  Host_CtrlRecv (         uint8_t   bm_request_type,
 /*********************************************************************//**
  * @brief           send the control information.
  * @param[in]       bm_request_type.
- * @param[in]        b_request
- * @param[in]        w_value
+ * @param[in]       b_request
+ * @param[in]       w_value
  * @param[in]       w_index
  * @param[in]       w_length
  * @param[in]       buffer
- * @return      USB_HOST_FUNC_OK       if Success
+ * @return          USB_HOST_FUNC_OK       if Success
  *                          ERROR    if Failed
  **********************************************************************/
 int32_t  Host_CtrlSend (          uint8_t   bm_request_type,
@@ -616,8 +616,8 @@ int32_t  Host_CtrlSend (          uint8_t   bm_request_type,
 /*********************************************************************//**
  * @brief           fill the setup packet.
  * @param[in]       None.
- * @return      USB_HOST_FUNC_OK       if Success
- *                          ERROR    if Failed
+ * @return          USB_HOST_FUNC_OK       if Success
+ *                  ERROR    if Failed
  **********************************************************************/
 void  Host_FillSetup (uint8_t   bm_request_type,
                       uint8_t   b_request,
@@ -637,8 +637,8 @@ void  Host_FillSetup (uint8_t   bm_request_type,
 }
 
 /*********************************************************************//**
- * @brief           initializes transfer descriptor.
- * @param[in]       td       Pointer to TD structure.
+ * @brief       initializes transfer descriptor.
+ * @param[in]   td       Pointer to TD structure.
  * @return      None.
  **********************************************************************/
 void  Host_TDInit (volatile  HCTD *td)
@@ -652,8 +652,8 @@ void  Host_TDInit (volatile  HCTD *td)
 
 
 /*********************************************************************//**
- * @brief           initializes endpoint descriptor.
- * @param[in]       td       Pointer to ED structure.
+ * @brief       initializes endpoint descriptor.
+ * @param[in]   td       Pointer to ED structure.
  * @return      None.
  **********************************************************************/
 void  Host_EDInit (volatile  HCED *ed)
@@ -666,8 +666,8 @@ void  Host_EDInit (volatile  HCED *ed)
 }
 
 /*********************************************************************//**
- * @brief           initializes host controller communications area.
- * @param[in]       hcca       Pointer to HCCA.
+ * @brief       initializes host controller communications area.
+ * @param[in]   hcca       Pointer to HCCA.
  * @return      None.
  **********************************************************************/
 void  Host_HCCAInit (volatile  HCCA  *hcca)
@@ -685,8 +685,8 @@ void  Host_HCCAInit (volatile  HCCA  *hcca)
 
 
 /*********************************************************************//**
- * @brief           infinite loop which breaks when ever a WDH interrupt rises.
- * @param[in]       None.
+ * @brief       infinite loop which breaks when ever a WDH interrupt rises.
+ * @param[in]   None.
  * @return      None.
  **********************************************************************/
 void  Host_WDHWait (void)
@@ -699,9 +699,9 @@ void  Host_WDHWait (void)
 
 
 /*********************************************************************//**
- * @brief           read an unsigned integer from a charecter buffer in the platform
+ * @brief       read an unsigned integer from a charecter buffer in the platform
  *              containing little endian processor.
- * @param[in]       pmem    Pointer to the charecter buffer.
+ * @param[in]   pmem    Pointer to the charecter buffer.
  * @return      val     Unsigned integer.
  **********************************************************************/
 uint32_t  ReadLE32U (volatile  uint8_t  *pmem)
@@ -717,10 +717,10 @@ uint32_t  ReadLE32U (volatile  uint8_t  *pmem)
 
 
 /*********************************************************************//**
- * @brief           write an unsigned integer into a charecter buffer in the platform 
+ * @brief       write an unsigned integer into a charecter buffer in the platform 
  *              containing little endian processor.
- * @param[in]       pmem    Pointer to the charecter buffer.
- * @param[in]       val     Integer value to be placed in the charecter buffer
+ * @param[in]   pmem    Pointer to the charecter buffer.
+ * @param[in]   val     Integer value to be placed in the charecter buffer
  * @return      None.
  **********************************************************************/
  void  WriteLE32U (volatile  uint8_t  *pmem,
@@ -734,10 +734,10 @@ uint32_t  ReadLE32U (volatile  uint8_t  *pmem)
 
 
 /*********************************************************************//**
- * @brief           read an unsigned short integer from a charecter buffer in the platform
+ * @brief      read an unsigned short integer from a charecter buffer in the platform
 *              containing little endian processor.
- * @param[in]       pmem    Pointer to the charecter buffer.
- * @return      val     Unsigned short integer.
+ * @param[in]  pmem    Pointer to the charecter buffer.
+ * @return     val     Unsigned short integer.
  **********************************************************************/
 uint16_t  ReadLE16U (volatile  uint8_t  *pmem)
 {
@@ -749,10 +749,10 @@ uint16_t  ReadLE16U (volatile  uint8_t  *pmem)
 }
 
 /*********************************************************************//**
- * @brief           write an unsigned short integer into a charecter buffer in the
+ * @brief       write an unsigned short integer into a charecter buffer in the
  *              platform containing little endian processor.
- * @param[in]       pmem    Pointer to the charecter buffer.
- * @param[in]          val     Value to be placed in the charecter buffer
+ * @param[in]   pmem    Pointer to the charecter buffer.
+ * @param[in]   val     Value to be placed in the charecter buffer
  * @return      None.
  **********************************************************************/
 void  WriteLE16U (volatile  uint8_t  *pmem,
@@ -777,9 +777,9 @@ void  WriteLE16U (volatile  uint8_t  *pmem,
 */
 
 /*********************************************************************//**
- * @brief           read an unsigned integer from a charecter buffer in the platform
+ * @brief       read an unsigned integer from a charecter buffer in the platform
  *              containing big endian processor.
- * @param[in]       pmem    Pointer to the charecter buffer.
+ * @param[in]   pmem    Pointer to the charecter buffer.
  * @return      val     Unsigned integer.
  **********************************************************************/
 uint32_t  ReadBE32U (volatile  uint8_t  *pmem)
@@ -794,10 +794,10 @@ uint32_t  ReadBE32U (volatile  uint8_t  *pmem)
 }
 
 /*********************************************************************//**
- * @brief           write an unsigned integer into a charecter buffer in the platform
+ * @brief       write an unsigned integer into a charecter buffer in the platform
  *              containing big endian processor
- * @param[in]       pmem    Pointer to the charecter buffer.
- * @param[in]          val     Value to be placed in the charecter buffer   
+ * @param[in]   pmem    Pointer to the charecter buffer.
+ * @param[in]   val     Value to be placed in the charecter buffer   
  * @return      None.
  **********************************************************************/
 void  WriteBE32U (volatile  uint8_t  *pmem,
@@ -810,10 +810,10 @@ void  WriteBE32U (volatile  uint8_t  *pmem,
 }
 
 /*********************************************************************//**
- * @brief           read an unsigned short integer from a charecter buffer in the platform
+ * @brief      read an unsigned short integer from a charecter buffer in the platform
 *              containing big endian processor
- * @param[in]       pmem    Pointer to the charecter buffer.
- * @return      val     Unsigned short integer.
+ * @param[in]  pmem    Pointer to the charecter buffer.
+ * @return     val     Unsigned short integer.
  **********************************************************************/
  uint16_t  ReadBE16U (volatile  uint8_t  *pmem)
 {
@@ -825,10 +825,10 @@ void  WriteBE32U (volatile  uint8_t  *pmem,
 }
 
 /*********************************************************************//**
- * @brief           write an unsigned short integer into the charecter buffer in the
+ * @brief       write an unsigned short integer into the charecter buffer in the
  *              platform containing big endian processor.
- * @param[in]       pmem    Pointer to the charecter buffer.
- * @param[in]        val     Value to be placed in the charecter buffer
+ * @param[in]   pmem    Pointer to the charecter buffer.
+ * @param[in]   val     Value to be placed in the charecter buffer
  * @return      None.
  **********************************************************************/
  void  WriteBE16U (volatile  uint8_t  *pmem,

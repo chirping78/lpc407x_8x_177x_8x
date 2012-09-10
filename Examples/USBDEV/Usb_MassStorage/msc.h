@@ -65,6 +65,8 @@ typedef __packed struct _MSC_CBW {
 #elif defined   (  __GNUC__  )
 typedef struct __packed _MSC_CBW {
 #elif defined   (  __IAR_SYSTEMS_ICC__  )
+#pragma language=save
+#pragma language=extended
 typedef __packed struct _MSC_CBW {
 #endif
   uint32_t dSignature;
@@ -89,6 +91,9 @@ typedef __packed struct _MSC_CSW {
   uint32_t dDataResidue;
   uint8_t  bStatus;
 } MSC_CSW;
+#if defined   (  __IAR_SYSTEMS_ICC__  )
+#pragma language=restore
+#endif
 
 #define MSC_CBW_Signature               0x43425355
 #define MSC_CSW_Signature               0x53425355

@@ -101,7 +101,7 @@ int32_t MCI_CheckStatus(uint8_t expect_status);
 
 
 volatile uint8_t* dataSrcBlock = (uint8_t *) MCI_DMA_SRC_ADDR;
-volatile uint8_t* dataDestBlock = (uint8_t *) MCI_DMA_DST_ADDR;;
+volatile uint8_t* dataDestBlock = (uint8_t *) MCI_DMA_DST_ADDR;
 
 volatile uint32_t txBlockCnt=0, rxBlockCnt=0;
 
@@ -128,7 +128,7 @@ volatile uint32_t txBlockCnt=0, rxBlockCnt=0;
  *                        - P2M: it is the destination address that will store
  *                         data that retrieved from the peripheral (the Card in slot)
  *
- * @return         None
+ * @return       None
  *
  * @note        This is only required if DMA support is enabled
  **********************************************************************/

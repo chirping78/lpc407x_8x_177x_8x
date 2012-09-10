@@ -2,7 +2,7 @@
 * $Id$      lpc_iap.c           2011-11-21
 *//**
 * @file     lpc_iap.c
- * @brief         Contains all functions support for IAP on LPC
+ * @brief   Contains all functions support for IAP on LPC
 * @version  1.0
 * @date     21. November. 2011
 * @author   NXP MCU SW Application Team
@@ -49,11 +49,11 @@ IAP iap_entry = (IAP) IAP_LOCATION;
  
 
 /*********************************************************************//**
- * @brief       Get Sector Number
+ * @brief     Get Sector Number
  *
- * @param[in] adr              Sector Address
+ * @param[in] adr      Sector Address
  *
- * @return  Sector Number.
+ * @return    Sector Number.
  *
  **********************************************************************/
  uint32_t GetSecNum (uint32_t adr)
@@ -69,12 +69,12 @@ IAP iap_entry = (IAP) IAP_LOCATION;
 }
 
 /*********************************************************************//**
- * @brief       Prepare sector(s) for write operation
+ * @brief     Prepare sector(s) for write operation
  *
  * @param[in] start_sec           The number of start sector
  * @param[in] end_sec             The number of end sector
  *
- * @return  CMD_SUCCESS/BUSY/INVALID_SECTOR.
+ * @return    CMD_SUCCESS/BUSY/INVALID_SECTOR.
  *
  **********************************************************************/
 IAP_STATUS_CODE PrepareSector(uint32_t start_sec, uint32_t end_sec)
@@ -88,13 +88,13 @@ IAP_STATUS_CODE PrepareSector(uint32_t start_sec, uint32_t end_sec)
 }
 
 /*********************************************************************//**
- * @brief        Copy RAM to Flash
+ * @brief     Copy RAM to Flash
  *
  * @param[in] dest            destination buffer (in Flash memory).
  * @param[in] source       source buffer (in RAM).
  * @param[in] size            the write size.
  *
- * @return  CMD_SUCCESS.
+ * @return    CMD_SUCCESS.
  *                  SRC_ADDR_ERROR/DST_ADDR_ERROR
  *                  SRC_ADDR_NOT_MAPPED/DST_ADDR_NOT_MAPPED
  *                  COUNT_ERROR/SECTOR_NOT_PREPARED_FOR_WRITE_OPERATION
@@ -125,12 +125,12 @@ IAP_STATUS_CODE CopyRAM2Flash(uint8_t * dest, uint8_t* source, IAP_WRITE_SIZE si
 }
 
 /*********************************************************************//**
- * @brief        Erase sector(s)
+ * @brief     Erase sector(s)
  *
  * @param[in] start_sec    The number of start sector
  * @param[in] end_sec      The number of end sector
  *
- * @return  CMD_SUCCESS.
+ * @return    CMD_SUCCESS.
  *                  INVALID_SECTOR
  *                  SECTOR_NOT_PREPARED_FOR_WRITE_OPERATION
  *                  BUSY
@@ -158,12 +158,12 @@ IAP_STATUS_CODE EraseSector(uint32_t start_sec, uint32_t end_sec)
 /*********************************************************************//**
  * @brief         Blank check sector(s)
  *
- * @param[in] start_sec    The number of start sector
- * @param[in] end_sec      The number of end sector
- * @param[out] first_nblank_loc  The offset of the first non-blank word
-  * @param[out] first_nblank_val  The value of the first non-blank word
+ * @param[in]     start_sec    The number of start sector
+ * @param[in]     end_sec      The number of end sector
+ * @param[out]    first_nblank_loc  The offset of the first non-blank word
+  * @param[out]   first_nblank_val  The value of the first non-blank word
  *
- * @return  CMD_SUCCESS.
+ * @return        CMD_SUCCESS.
  *                  INVALID_SECTOR
  *                  SECTOR_NOT_BLANK
  *                  BUSY
@@ -193,11 +193,11 @@ IAP_STATUS_CODE BlankCheckSector(uint32_t start_sec, uint32_t end_sec,
 }
 
 /*********************************************************************//**
- * @brief          Read part identification number
+ * @brief      Read part identification number
  *
  * @param[out] partID  Part ID
  *
- * @return  CMD_SUCCESS
+ * @return     CMD_SUCCESS
  *
  **********************************************************************/
 IAP_STATUS_CODE ReadPartID(uint32_t *partID)
@@ -216,12 +216,12 @@ IAP_STATUS_CODE ReadPartID(uint32_t *partID)
 }
 
 /*********************************************************************//**
- * @brief          Read boot code version. The version is interpreted as <major>.<minor>.
+ * @brief      Read boot code version. The version is interpreted as <major>.<minor>.
  *
  * @param[out] major  The major
  * @param[out] minor  The minor
  *
- * @return  CMD_SUCCESS
+ * @return     CMD_SUCCESS
  *
  **********************************************************************/
 IAP_STATUS_CODE ReadBootCodeVer(uint8_t *major, uint8_t* minor)
@@ -242,11 +242,11 @@ IAP_STATUS_CODE ReadBootCodeVer(uint8_t *major, uint8_t* minor)
 }
 
 /*********************************************************************//**
- * @brief          Read Device serial number.
+ * @brief      Read Device serial number.
  *
  * @param[out] uid   Serial number.
  *
- * @return  CMD_SUCCESS
+ * @return     CMD_SUCCESS
  *
  **********************************************************************/
 IAP_STATUS_CODE ReadDeviceSerialNum(uint32_t *uid)
@@ -269,13 +269,13 @@ IAP_STATUS_CODE ReadDeviceSerialNum(uint32_t *uid)
 }
 
 /*********************************************************************//**
- * @brief          compare the memory contents at two locations.
+ * @brief     compare the memory contents at two locations.
  *
  * @param[in] addr1   The address of the 1st buffer (in RAM/Flash).
  * @param[in] addr2   The address of the 2nd buffer (in RAM/Flash).
- * @param[in] size      Number of bytes to be compared; should be a multiple of 4.
+ * @param[in] size    Number of bytes to be compared; should be a multiple of 4.
  *
- * @return  CMD_SUCCESS
+ * @return    CMD_SUCCESS
  *                  COMPARE_ERROR
  *                  COUNT_ERROR (Byte count is not a multiple of 4)
  *                  ADDR_ERROR
@@ -295,11 +295,11 @@ IAP_STATUS_CODE Compare(uint8_t *addr1, uint8_t *addr2, uint32_t size)
 }
 
 /*********************************************************************//**
- * @brief          Re-invoke ISP.
+ * @brief     Re-invoke ISP.
  *
  * @param[in] None.
  *
- * @return  None.
+ * @return    None.
  *
  **********************************************************************/
 void InvokeISP(void)

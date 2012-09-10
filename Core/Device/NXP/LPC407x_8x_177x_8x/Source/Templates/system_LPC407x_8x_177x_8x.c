@@ -308,7 +308,7 @@
 
 /* Flash Accelerator Configuration -------------------------------------------*/
 #if (CHECK_RSVD((FLASHCFG_Val), ~0x0000F000))
-   #warning "FLASHCFG: Invalid values of reserved bits!"
+   #error "FLASHCFG: Invalid values of reserved bits!"
 #endif
 
 

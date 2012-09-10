@@ -135,6 +135,9 @@ typedef enum IRQn
 
 #if defined ( __CC_ARM   )
 #pragma anon_unions
+#elif defined ( __ICCARM__ )
+#pragma language=save
+#pragma language=extended
 #endif
 
 /*------------- General Purpose Direct Memory Access (GPDMA) -----------------*/
@@ -1369,6 +1372,8 @@ typedef struct {                                    /*!< (@ 0x40020000) COMPARAT
 
 #if defined ( __CC_ARM   )
 #pragma no_anon_unions
+#elif defined ( __ICCARM__ )
+#pragma language=restore
 #endif
 
 /******************************************************************************/

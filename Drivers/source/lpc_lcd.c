@@ -61,12 +61,12 @@ static void LCD_CtrlSetup(LCD_Config_Type* pConfig);
 
 
 /*********************************************************************//**
- * @brief       Init LCD. The input clock is CClk
+ * @brief     Init LCD. The input clock is CClk
  *
  * @param[in] pConfig              Configuration Information
  *
- * @return  LCD_FUNC_OK   Execute successfully
- *                  LCD_FUNC_ERR  Error occurred.
+ * @return    LCD_FUNC_OK   Execute successfully
+ *            LCD_FUNC_ERR  Error occurred.
  *
  **********************************************************************/
 LCD_RET_CODE LCD_Init (LCD_Config_Type* pConfig)
@@ -155,11 +155,11 @@ LCD_RET_CODE LCD_Init (LCD_Config_Type* pConfig)
     
 }
 /*********************************************************************//**
- * @brief       Horizontal Timing Setting
+ * @brief     Horizontal Timing Setting
  *
  * @param[in] pConfig              Configuration Information
  *
- * @return  None.
+ * @return    None.
  *
  **********************************************************************/
 void LCD_SetHorizontalTiming(LCD_HConfig_Type* pConfig)
@@ -173,11 +173,11 @@ void LCD_SetHorizontalTiming(LCD_HConfig_Type* pConfig)
 }
 
 /*********************************************************************//**
- * @brief       Vertical Timing Setting
+ * @brief     Vertical Timing Setting
  *
  * @param[in] pConfig              Configuration Information
  *
- * @return  None.
+ * @return    None.
  *
  **********************************************************************/
 void LCD_SetVertialTiming(LCD_VConfig_Type* pConfig)
@@ -191,7 +191,7 @@ void LCD_SetVertialTiming(LCD_VConfig_Type* pConfig)
 }
 
 /*********************************************************************//**
- * @brief       Polarity Setting
+ * @brief     Polarity Setting
  *
  * @param[in] pConfig              Configuration Information
  * @param[in] lcd_type            It can be:
@@ -199,7 +199,7 @@ void LCD_SetVertialTiming(LCD_VConfig_Type* pConfig)
  *                                                - LCD_STN_COLOR
  *                                                - LCD_TFT
  *
- * @return  None.
+ * @return    None.
  *
  **********************************************************************/
 void LCD_SetPolarity(LCD_TYPES lcd_type, LCD_POLARITY_Type* pConfig)
@@ -237,12 +237,12 @@ void LCD_SetPolarity(LCD_TYPES lcd_type, LCD_POLARITY_Type* pConfig)
     }
 
 /*********************************************************************//**
- * @brief       Set base address of frame buffer
+ * @brief     Set base address of frame buffer
  *
  * @param[in] panel           identify which panel is.
  * @param[in] pAddress          base address of the inputted panel.
  *
- * @return  None.
+ * @return    None.
  *
  **********************************************************************/
 void LCD_SetBaseAddress(LCD_PANEL panel, uint32_t pAddress)
@@ -255,11 +255,11 @@ void LCD_SetBaseAddress(LCD_PANEL panel, uint32_t pAddress)
 }
 
 /*********************************************************************//**
- * @brief       LCD Setup.
+ * @brief     LCD Setup.
  *
  * @param[in] pConfig             Configuration information.
  *
- * @return  None.
+ * @return    None.
  *
  **********************************************************************/
 void LCD_CtrlSetup(LCD_Config_Type* pConfig)
@@ -322,11 +322,11 @@ void LCD_CtrlSetup(LCD_Config_Type* pConfig)
 }
 
 /*********************************************************************//**
- * @brief       Enable/disable LCD Display.
+ * @brief     Enable/disable LCD Display.
  *
  * @param[in] bEna           0: disable, 1: enable.
  *
- * @return  None.
+ * @return    None.
  *
  **********************************************************************/
 void LCD_Enable (Bool bEna)
@@ -348,11 +348,11 @@ void LCD_Enable (Bool bEna)
 
 
 /*********************************************************************//**
- * @brief       Set palette.
+ * @brief     Set palette.
  *
  * @param[in] bEna           0: disable, 1: enable.
  *
- * @return  None.
+ * @return    None.
  *
  **********************************************************************/
 void LCD_SetPalette (const uint8_t* pPallete)
@@ -370,12 +370,12 @@ void LCD_SetPalette (const uint8_t* pPallete)
     }
 }
 /*********************************************************************//**
- * @brief       Get word offset for the given pixel
+ * @brief     Get word offset for the given pixel
  *
  * @param[in] x      x position of input pixel
  * @param[in] y      y position of input pixel
  *
- * @return      Offset
+ * @return    Offset
  *
  **********************************************************************/
 uint32_t LCD_GetWordOffset(uint32_t x, uint32_t y)
@@ -385,12 +385,12 @@ uint32_t LCD_GetWordOffset(uint32_t x, uint32_t y)
   return (pixel_num * bits_per_pixel[lcd_config.lcd_bpp])/32;
 }
 /*********************************************************************//**
- * @brief       Get bit offset for the given pixel
+ * @brief     Get bit offset for the given pixel
  *
  * @param[in] x      x position of input pixel
  * @param[in] y      y position of input pixel
  *
- * @return      Offset
+ * @return    Offset
  *
  **********************************************************************/
 uint32_t LCD_GetBitOffset(uint32_t x, uint32_t y)
@@ -418,14 +418,14 @@ uint32_t LCD_GetBitOffset(uint32_t x, uint32_t y)
 
 
 /*********************************************************************//**
- * @brief       Copy pixel values from image buffer to frame buffer.
+ * @brief     Copy pixel values from image buffer to frame buffer.
  *
  * @param[in] panel          It can be:
  *                                             - LCD_PANEL_UPPER
  *                                             - LCD_PANEL_LOWER
  * @param[in] pPain         point to image buffer.
  *
- * @return  None.
+ * @return    None.
  *
  **********************************************************************/
 void LCD_SetImage(LCD_PANEL panel, const uint8_t *pPain)
@@ -463,7 +463,7 @@ void LCD_SetImage(LCD_PANEL panel, const uint8_t *pPain)
     for(i = LCD_PWR_ENA_DIS_DLY; i; i--);
 }
 /*********************************************************************//**
- * @brief       Draw a pixel on the given panel.
+ * @brief     Draw a pixel on the given panel.
  *
  * @param[in] panel          It can be:
  *                                             - LCD_PANEL_UPPER
@@ -472,7 +472,7 @@ void LCD_SetImage(LCD_PANEL panel, const uint8_t *pPain)
  * @param[in] Y_Up          Y position.
  * @param[in] color         Color which is placed to the given pixel.
  *
- * @return  None.
+ * @return    None.
  *
  **********************************************************************/
 void LCD_PutPixel (LCD_PANEL panel, uint32_t X_Left, uint32_t Y_Up, LcdPixel_t color)
@@ -519,7 +519,7 @@ void LCD_PutPixel (LCD_PANEL panel, uint32_t X_Left, uint32_t Y_Up, LcdPixel_t c
     }
 }
 /*********************************************************************//**
- * @brief       Place given image to given position.
+ * @brief     Place given image to given position.
  *
  * @param[in] panel          It can be:
  *                                             - LCD_PANEL_UPPER
@@ -529,7 +529,7 @@ void LCD_PutPixel (LCD_PANEL panel, uint32_t X_Left, uint32_t Y_Up, LcdPixel_t c
  * @param[in] pBmp          Image information. 
  * @param[in] Mask          Mask on pixel values.
  *
- * @return  None.
+ * @return    None.
  *
  **********************************************************************/
 void LCD_LoadPic (LCD_PANEL panel, uint32_t X_Left, uint32_t Y_Up, 
@@ -655,7 +655,7 @@ void LCD_LoadPic (LCD_PANEL panel, uint32_t X_Left, uint32_t Y_Up,
 }
 
 /*********************************************************************//**
- * @brief       Fill a rectangle.
+ * @brief     Fill a rectangle.
  *
  * @param[in] panel          It can be:
  *                                             - LCD_PANEL_UPPER
@@ -665,7 +665,7 @@ void LCD_LoadPic (LCD_PANEL panel, uint32_t X_Left, uint32_t Y_Up,
  * @param[in] starty            Start Y position.
  * @param[in] endy           End Y position.
  *
- * @return  None.
+ * @return    None.
  *
  **********************************************************************/
 void LCD_FillRect (LCD_PANEL panel, uint32_t startx,uint32_t endx, 
@@ -732,11 +732,11 @@ void LCD_FillRect (LCD_PANEL panel, uint32_t startx,uint32_t endx,
 }
 
 /*********************************************************************//**
- * @brief       Configure display of cursor.
+ * @brief     Configure display of cursor.
  *
  * @param[in] pConfig            Configuration information.
  *
- * @return  None.
+ * @return    None.
  *
  **********************************************************************/
 void LCD_Cursor_Cfg(LCD_Cursor_Config_Type* pConfig)
@@ -766,12 +766,12 @@ void LCD_Cursor_Cfg(LCD_Cursor_Config_Type* pConfig)
 
 }
 /*********************************************************************//**
- * @brief       Enable/disable cursor display.
+ * @brief     Enable/disable cursor display.
  *
  * @param[in] enable             0: disable, 1: enable.
  * @param[in] cursor             identify which cursor image is used.
  *
- * @return  None.
+ * @return    None.
  *
  **********************************************************************/
 void LCD_Cursor_Enable(int enable, int cursor)
@@ -787,12 +787,12 @@ void LCD_Cursor_Enable(int enable, int cursor)
 
 
 /*********************************************************************//**
- * @brief       move the cursor to the inputted position.
+ * @brief     move the cursor to the inputted position.
  *
  * @param[in] x          Position in x-direction.
  * @param[in] y          Position in y-direction.
  *
- * @return  None.
+ * @return    None.
  *
  **********************************************************************/
 void LCD_Move_Cursor(int x, int y)
@@ -820,13 +820,13 @@ void LCD_Move_Cursor(int x, int y)
 }
 
 /*********************************************************************//**
- * @brief       Set the cursor image.
+ * @brief     Set the cursor image.
  *
  * @param[in] pCursor      point to cursor image.
  * @param[in] cursor       cursor image number. It has no meaning when cursor size is 64x64
  * @param[in] cursor       cursor size in words.
  *
- * @return  None.
+ * @return    None.
  *
  **********************************************************************/
 void LCD_Cursor_SetImage (const uint32_t *pCursor, int cursor, int size)
