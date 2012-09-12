@@ -37,7 +37,7 @@
 #
 ########################################################################
 
-include $(PROJ_ROOT)/makesection/makerule/$(DEVICE)/make.$(DEVICE).$(TOOL)
+include $(PROJ_ROOT)/makesection/makerule/LPC/make.LPC.$(TOOL)
 
 ########################################################################
 #
@@ -161,36 +161,77 @@ default: rom
 
 ifeq ($(TOOL), gnu)
 
-rom: LDSCRIPT=$(LDSCRIPTIROM)
-rom: AFLAGS += --defsym RAM_MODE=0 
-rom: clean_rom debug_status  $(OBJS) $(ADDOBJS) $(ADDOBJSS)  $(FWOBJS) $(BOARDOBJS)
+ifeq ($(CPU), cortex-m3)
+rom: rom_m3
+ram: ram_m3
+else
+rom: rom_m4
+ram: ram_m4
+endif
+
+rom_m3: LDSCRIPT=$(LDSCRIPTIROM)
+rom_m3: AFLAGS += --defsym RAM_MODE=0 
+rom_m3: clean_rom_m3 debug_status  $(OBJS) $(ADDOBJS) $(ADDOBJSS)  $(FWOBJS) $(BOARDOBJS)
 	$(LD) $(OBJS) $(ADDOBJS) $(ADDOBJSS) $(FWOBJS) $(BOARDOBJS) $(LDFLAGS) $(LK) $(SCAN) $(MAP) \
 	$(MAPFILE)$(MEXT) $(LDESC) $(LDSCRIPT) -o $(EXECNAME)$(EXT)
 	$(ELFTOHEX) $(EXECNAME)$(EXT) $(EXECNAME)$(HEX)
 	$(ELFTOREC) $(EXECNAME)$(EXT) $(EXECNAME)$(REC)
 #	$(ELFTOBIN) $(EXECNAME)$(EXT) $(EFLTBINOPT) $(EXECNAME).bin
-	$(MKDIR) GCC/Flash
-	$(MV) $(MAPFILE)$(MEXT) GCC/Flash/$(MAPFILE)$(MEXT)
-	$(MV) $(EXECNAME)$(EXT) GCC/Flash/$(EXECNAME)$(EXT)
-	$(MV) $(EXECNAME)$(HEX) GCC/Flash/$(EXECNAME)$(HEX)
-	$(MV) $(EXECNAME)$(REC) GCC/Flash/$(EXECNAME)$(REC)
-	$(CODESIZE) GCC/Flash/$(EXECNAME)$(EXT)
+	$(MKDIR) GCC/Flash_M3
+	$(MV) $(MAPFILE)$(MEXT) GCC/Flash_M3/$(MAPFILE)$(MEXT)
+	$(MV) $(EXECNAME)$(EXT) GCC/Flash_M3/$(EXECNAME)$(EXT)
+	$(MV) $(EXECNAME)$(HEX) GCC/Flash_M3/$(EXECNAME)$(HEX)
+	$(MV) $(EXECNAME)$(REC) GCC/Flash_M3/$(EXECNAME)$(REC)
+	$(CODESIZE) GCC/Flash_M3/$(EXECNAME)$(EXT)
+	
+rom_m4: LDSCRIPT=$(LDSCRIPTIROM)
+rom_m4: AFLAGS += --defsym RAM_MODE=0 
+rom_m4: CFLAGS += -DCORE_M4=1 
+rom_m4: clean_rom_m4 debug_status  $(OBJS) $(ADDOBJS) $(ADDOBJSS)  $(FWOBJS) $(BOARDOBJS)
+	$(LD) $(OBJS) $(ADDOBJS) $(ADDOBJSS) $(FWOBJS) $(BOARDOBJS) $(LDFLAGS) $(LK) $(SCAN) $(MAP) \
+	$(MAPFILE)$(MEXT) $(LDESC) $(LDSCRIPT) -o $(EXECNAME)$(EXT)
+	$(ELFTOHEX) $(EXECNAME)$(EXT) $(EXECNAME)$(HEX)
+	$(ELFTOREC) $(EXECNAME)$(EXT) $(EXECNAME)$(REC)
+#	$(ELFTOBIN) $(EXECNAME)$(EXT) $(EFLTBINOPT) $(EXECNAME).bin
+	$(MKDIR) GCC/Flash_M4
+	$(MV) $(MAPFILE)$(MEXT) GCC/Flash_M4/$(MAPFILE)$(MEXT)
+	$(MV) $(EXECNAME)$(EXT) GCC/Flash_M4/$(EXECNAME)$(EXT)
+	$(MV) $(EXECNAME)$(HEX) GCC/Flash_M4/$(EXECNAME)$(HEX)
+	$(MV) $(EXECNAME)$(REC) GCC/Flash_M4/$(EXECNAME)$(REC)
+	$(CODESIZE) GCC/Flash_M4/$(EXECNAME)$(EXT)	
 
-ram: LDSCRIPT=$(LDSCRIPTIRAM) 
-ram: AFLAGS += --defsym RAM_MODE=1
-ram: CFLAGS += -D__RAM_MODE__=1 
-ram: clean_ram debug_status $(OBJS) $(ADDOBJS) $(ADDOBJSS) $(FWOBJS) $(BOARDOBJS)
+ram_m3: LDSCRIPT=$(LDSCRIPTIRAM) 
+ram_m3: AFLAGS += --defsym RAM_MODE=1
+ram_m3: CFLAGS += -D__RAM_MODE__=1 
+ram_m3: clean_ram_m3 debug_status $(OBJS) $(ADDOBJS) $(ADDOBJSS) $(FWOBJS) $(BOARDOBJS)
 	$(LD) $(OBJS) $(ADDOBJS) $(ADDOBJSS) $(FWOBJS) $(BOARDOBJS) $(LDFLAGS) $(LK) $(SCAN) $(MAP) \
 	$(MAPFILE)$(MEXT) $(LDESC) $(LDSCRIPT) -o $(EXECNAME)$(EXT) 
 	$(ELFTOHEX) $(EXECNAME)$(EXT) $(EXECNAME)$(HEX)
 	$(ELFTOREC) $(EXECNAME)$(EXT) $(EXECNAME)$(REC)
 #	$(ELFTOBIN) $(EXECNAME)$(EXT) $(EFLTBINOPT) $(EXECNAME).bin
-	$(MKDIR) GCC/Ram
-	$(MV) $(MAPFILE)$(MEXT) GCC/Ram/$(MAPFILE)$(MEXT)
-	$(MV) $(EXECNAME)$(EXT) GCC/Ram/$(EXECNAME)$(EXT)
-	$(MV) $(EXECNAME)$(HEX) GCC/Ram/$(EXECNAME)$(HEX)
-	$(MV) $(EXECNAME)$(REC) GCC/Ram/$(EXECNAME)$(REC)
-	$(CODESIZE) GCC/Ram/$(EXECNAME)$(EXT)
+	$(MKDIR) GCC/Ram_M3
+	$(MV) $(MAPFILE)$(MEXT) GCC/Ram_M3/$(MAPFILE)$(MEXT)
+	$(MV) $(EXECNAME)$(EXT) GCC/Ram_M3/$(EXECNAME)$(EXT)
+	$(MV) $(EXECNAME)$(HEX) GCC/Ram_M3/$(EXECNAME)$(HEX)
+	$(MV) $(EXECNAME)$(REC) GCC/Ram_M3/$(EXECNAME)$(REC)
+	$(CODESIZE) GCC/Ram_M3/$(EXECNAME)$(EXT)
+	
+ram_m4: LDSCRIPT=$(LDSCRIPTIRAM) 
+ram_m4: AFLAGS += --defsym RAM_MODE=1
+ram_m4: CFLAGS += -D__RAM_MODE__=1 
+ram_m4: CFLAGS += -DCORE_M4=1 
+ram_m4: clean_ram_m4 debug_status $(OBJS) $(ADDOBJS) $(ADDOBJSS) $(FWOBJS) $(BOARDOBJS)
+	$(LD) $(OBJS) $(ADDOBJS) $(ADDOBJSS) $(FWOBJS) $(BOARDOBJS) $(LDFLAGS) $(LK) $(SCAN) $(MAP) \
+	$(MAPFILE)$(MEXT) $(LDESC) $(LDSCRIPT) -o $(EXECNAME)$(EXT) 
+	$(ELFTOHEX) $(EXECNAME)$(EXT) $(EXECNAME)$(HEX)
+	$(ELFTOREC) $(EXECNAME)$(EXT) $(EXECNAME)$(REC)
+#	$(ELFTOBIN) $(EXECNAME)$(EXT) $(EFLTBINOPT) $(EXECNAME).bin
+	$(MKDIR) GCC/Ram_M4
+	$(MV) $(MAPFILE)$(MEXT) GCC/Ram_M4/$(MAPFILE)$(MEXT)
+	$(MV) $(EXECNAME)$(EXT) GCC/Ram_M4/$(EXECNAME)$(EXT)
+	$(MV) $(EXECNAME)$(HEX) GCC/Ram_M4/$(EXECNAME)$(HEX)
+	$(MV) $(EXECNAME)$(REC) GCC/Ram_M4/$(EXECNAME)$(REC)
+	$(CODESIZE) GCC/Ram_M4/$(EXECNAME)$(EXT)	
 endif
 
 
@@ -204,11 +245,17 @@ clean_objs: realclean lpc_clean
 	@$(RM) $(FWOBJS)
 	@$(RM) $(BOARDOBJS)
 	
-clean_ram: clean_objs
-	@$(RMDIR) "GCC/Ram"	
+clean_ram_m3: clean_objs
+	@$(RMDIR) "GCC/Ram_M3"	
+	
+clean_ram_m4: clean_objs
+	@$(RMDIR) "GCC/Ram_M4"		
 
-clean_rom: clean_objs
-	@$(RMDIR) "GCC/Flash"
+clean_rom_m3: clean_objs
+	@$(RMDIR) "GCC/Flash_M3"
+
+clean_rom_m4: clean_objs
+	@$(RMDIR) "GCC/Flash_M4"
 	
 cleanall: clean_ram clean_rom
 	@$(RMDIR) "GCC"	

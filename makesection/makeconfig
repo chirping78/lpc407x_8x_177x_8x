@@ -12,15 +12,16 @@
 #
 ########################################################################
 
-DEVICE				=LPC177x_8x
+DEVICE				=LPC407x_8x_177x_8x
+CPU				=cortex-m4
 MANUFACTURE			=NXP
 TOOL 				=gnu
 DEBUG_MODE			=1
 TOOLS_PATH 			=$(PROJ_ROOT)/makesection/tools/
 
 
-GNU_INSTALL_ROOT	=C:/Program Files (x86)/CodeSourcery/Sourcery G++ Lite
-GNU_VERSION			=4.3.3
-IAR_INSTALL_ROOT	=C:/Program Files (x86)/IAR Systems/Embedded Workbench 6.0 Kickstart
+GNU_INSTALL_ROOT	=C:/Program Files (x86)/CodeSourcery/Sourcery_CodeBench_Lite_for_ARM_EABI
+GNU_VERSION		=4.6.3
+IAR_INSTALL_ROOT	=C:/Program Files (x86)/IAR Systems\Embedded Workbench 6.0/
 KEIL_INSTALL_ROOT	=C:/Keil
 

@@ -25,7 +25,6 @@ GNUTOOLS		='$(GNU_INSTALL_ROOT)/bin'
 THUMB2GNULIB 	='$(GNU_INSTALL_ROOT)/lib/gcc/arm-none-eabi/$(GNU_VERSION)/thumb2'
 THUMB2GNULIB2	='$(GNU_INSTALL_ROOT)/arm-none-eabi/lib/thumb2'
 
-CPU       		= cortex-m3
 OPTIM			= 0
 
 #===================== C compile flag ============================
@@ -40,9 +39,15 @@ CFLAGS	 		+= -msoft-float
 CFLAGS			+= -gdwarf-2 
 CFLAGS   		+= -mno-sched-prolog 
 CFLAGS			+= -fno-hosted 
-CFLAGS			+= -mtune=cortex-m3 
+ifeq ($(CPU), cortex-m3)
+CFLAGS			+= -mtune=$(CPU) 
+endif
+ifeq ($(CPU), cortex-m3)
 CFLAGS			+= -march=armv7-m 
-CFLAGS			+= -mfix-cortex-m3-ldrd  
+CFLAGS			+= -mfix-$(CPU)-ldrd  
+else
+CFLAGS			+= -march=armv7e-m 
+endif
 CFLAGS   		+= -ffunction-sections 
 CFLAGS			+= -fdata-sections 
 
@@ -96,7 +101,7 @@ CODESIZE 		= $(GNUTOOLS)/arm-none-eabi-size
 #LDFLAGS 		+= -nostdlib 
 
 
-LK       		=  -static -mcpu=cortex-m3 -mthumb -mthumb-interwork
+LK       		=  -static -mcpu=$(CPU) -mthumb -mthumb-interwork
 #LK			= -static
 #LK       		+= -Wl,--start-group $(TARGET_FWLIB_LIB) 
 LK       		+= -Wl,--start-group 

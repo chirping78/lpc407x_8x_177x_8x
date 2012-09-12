@@ -549,9 +549,7 @@ fpu_init();
   LPC_SC->CCLKSEL   = CCLKSEL_Val;      /* Setup Clock Divider                */
   LPC_SC->USBCLKSEL = USBCLKSEL_Val;    /* Setup USB Clock Divider            */
   LPC_SC->EMCCLKSEL = EMCCLKSEL_Val;    /* EMC Clock Selection                */
-#ifdef CORE_M4  
   LPC_SC->SPIFICLKSEL  = SPIFICLKSEL_Val;  /* SPIFI Clock Selection              */
-#endif  
   LPC_SC->PCLKSEL   = PCLKSEL_Val;      /* Peripheral Clock Selection         */
   LPC_SC->PCONP     = PCONP_Val;        /* Power Control for Peripherals      */
   LPC_SC->CLKOUTCFG = CLKOUTCFG_Val;    /* Clock Output Configuration         */

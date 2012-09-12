@@ -39,7 +39,7 @@ include ../../makesection/makeconfig
 #
 ########################################################################
 
-include $(PROJ_ROOT)/makesection/makerule/$(DEVICE)/make.$(DEVICE).$(TOOL)
+include $(PROJ_ROOT)/makesection/makerule/LPC/make.LPC.$(TOOL)
 
 ########################################################################
 #

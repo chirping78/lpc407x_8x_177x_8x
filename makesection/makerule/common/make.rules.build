@@ -33,11 +33,11 @@ ifeq ($(TOOL), iar)
 else
 %.o : %.c
 	@echo CC $<
-	$(CC) -c $(CFLAGS) $< -o $*.o
+	$(CC) $(CFLAGS) $< -o $*.o
 
 %.o : %.cpp
 	@echo CCP $<
-	$(CCP) -c $(CFLAGS) $< -o $*.o
+	$(CCP) $(CFLAGS) $< -o $*.o
 endif
 
 #########################################################################
