@@ -16,21 +16,20 @@
 #include <stdio.h>
 #include <string.h>
 #endif
-#define extern            // Keil: Line added for modular project management
 
 #include "stdio.h"
 #include "string.h"
 #include "bsp.h"
-
-#include "easyweb.h"
-
-#include "EMAC.h"
-#include "tcpip.h"
 #include "LPC407x_8x_177x_8x.h"
 #include "lpc_adc.h"
 #include "lpc_timer.h"
 #include "lpc_uart.h"
 #include "lpc_pinsel.h"
+
+#define extern            // Keil: Line added for modular project management
+#include "easyweb.h"
+#include "EMAC.h"
+#include "tcpip.h"
 
 // webside for our HTTP server (HTML)
 #if (_CURR_USING_BRD == _EA_PA_BOARD)

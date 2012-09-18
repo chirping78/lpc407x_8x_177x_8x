@@ -34,9 +34,6 @@
 #ifndef __LPC407x_8x_177x_8x_H__
 #define __LPC407x_8x_177x_8x_H__
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 /* -------------------------  Interrupt Number Definition  ------------------------ */
@@ -125,6 +122,7 @@ typedef enum IRQn
 
 #endif
 
+#include "system_LPC407x_8x_177x_8x.h"                      /*!< LPC408x_7x System                                                     */
 
 
 
