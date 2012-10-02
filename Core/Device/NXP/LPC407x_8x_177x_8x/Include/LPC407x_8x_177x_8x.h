@@ -736,9 +736,9 @@ typedef struct
   __O  uint32_t  FCR;                   /*!< Offset: 0x008 FIFO Control Register ( /W) */
   };
   __IO uint32_t  LCR;                   /*!< Offset: 0x00C Line Control Register (R/W) */
-  __IO uint32_t  MCR;                   /*!< Offset: 0x010 Modem control Register (R/W) */
+       uint32_t  RESERVED0;             /*!< Offset: 0x010  */
   __I  uint32_t  LSR;                   /*!< Offset: 0x014 Line Status Register (R/ ) */
-  __I  uint32_t  MSR;                   /*!< Offset: 0x018 Modem status Register (R/ ) */
+       uint32_t  RESERVED1;             /*!< Offset: 0x018  */
   __IO uint32_t  SCR;                   /*!< Offset: 0x01C Scratch Pad Register (R/W) */
   __IO uint32_t  ACR;                   /*!< Offset: 0x020 Auto-baud Control Register (R/W) */
   __IO uint32_t  ICR;                   /*!< Offset: 0x024 irDA Control Register (R/W) */
@@ -746,25 +746,14 @@ typedef struct
   __IO uint32_t  OSR;                   /*!< Offset: 0x02C Over sampling Register (R/W) */
   __O  uint32_t  POP;                   /*!< Offset: 0x030 NHP Pop Register (W) */
   __IO uint32_t  MODE;                  /*!< Offset: 0x034 NHP Mode selection Register (W) */
-       uint32_t  RESERVED0[2];
+       uint32_t  RESERVED2[2];
   __IO uint32_t  HDEN;                  /*!< Offset: 0x040 Half duplex Enable Register (R/W) */
-       uint32_t  RESERVED1;
+       uint32_t  RESERVED3;
   __IO uint32_t  SCI_CTRL;				/*!< Offset: 0x048 Smart card Interface Control Register (R/W) */
   __IO uint32_t  RS485CTRL;             /*!< Offset: 0x04C RS-485/EIA-485 Control Register (R/W) */
   __IO uint32_t  ADRMATCH;              /*!< Offset: 0x050 RS-485/EIA-485 address match Register (R/W) */
   __IO uint32_t  RS485DLY;              /*!< Offset: 0x054 RS-485/EIA-485 direction control delay Register (R/W) */
   __IO uint32_t  SYNCCTRL;              /*!< Offset: 0x058 Synchronous Mode Control Register (R/W ) */
-  __IO uint32_t  TER;                   /*!< Offset: 0x05C Transmit Enable Register (R/W) */
-       uint32_t  RESERVED2[989];
-  __I  uint32_t  CFG;                   /*!< Offset: 0xFD4 Configuration Register (R) */
-  __O  uint32_t  INTCE;                 /*!< Offset: 0xFD8 Interrupt Clear Enable Register (W) */
-  __O  uint32_t  INTSE;                 /*!< Offset: 0xFDC Interrupt Set Enable Register (W) */
-  __I  uint32_t  INTS;                  /*!< Offset: 0xFE0 Interrupt Status Register (R) */
-  __I  uint32_t  INTE;                  /*!< Offset: 0xFE4 Interrupt Enable Register (R) */
-  __O  uint32_t  INTCS;                 /*!< Offset: 0xFE8 Interrupt Clear Status Register (W) */
-  __O  uint32_t  INTSS;                 /*!< Offset: 0xFEC Interrupt Set Status Register (W) */
-       uint32_t  RESERVED3[3];
-  __I  uint32_t  MID;                   /*!< Offset: 0xFFC Module Identification Register (R) */
 } LPC_UART4_TypeDef;
 /*------------- Inter-Integrated Circuit (I2C) -------------------------------*/
 typedef struct

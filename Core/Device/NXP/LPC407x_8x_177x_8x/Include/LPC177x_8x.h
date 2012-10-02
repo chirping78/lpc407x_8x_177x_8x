@@ -39,6 +39,11 @@
  * ==========================================================================
  */
 
+/** @addtogroup LPC177x_8x_System
+ * @{
+ */
+
+/** @brief IRQ interrupt source definition */
 typedef enum IRQn
 {
 /******  Cortex-M3 Processor Exceptions Numbers ***************************************************/
@@ -118,9 +123,13 @@ typedef enum IRQn
 
 #if defined ( __CC_ARM   )
 #pragma anon_unions
+#elif defined ( __ICCARM__ )
+#pragma language=save
+#pragma language=extended
 #endif
 
 /*------------- System Control (SC) ------------------------------------------*/
+/** @brief System Control (SC) register structure definition */
 typedef struct
 {
   __IO uint32_t FLASHCFG;                   /*!< Offset: 0x000 (R/W)  Flash Accelerator Configuration Register */
@@ -171,6 +180,7 @@ typedef struct
  } LPC_SC_TypeDef;
 
 /*------------- Pin Connect Block (PINCON) -----------------------------------*/
+/** @brief Pin Connect Block (PINCON) register structure definition */
 typedef struct
 {
   __IO uint32_t P0_0;				/* 0x000 */
@@ -361,6 +371,7 @@ typedef struct
 } LPC_IOCON_TypeDef;
 
 /*------------- General Purpose Input/Output (GPIO) --------------------------*/
+/** @brief General Purpose Input/Output (GPIO) register structure definition */
 typedef struct
 {
   __IO uint32_t DIR;
@@ -371,6 +382,7 @@ typedef struct
   __O  uint32_t CLR;
 } LPC_GPIO_TypeDef;
 
+/** @brief General Purpose Input/Output interrupt (GPIOINT) register structure definition */
 typedef struct
 {
   __I  uint32_t IntStatus;
@@ -388,6 +400,7 @@ typedef struct
 } LPC_GPIOINT_TypeDef;
 
 /*------------- Timer (TIM) --------------------------------------------------*/
+/** @brief Timer (TIM) register structure definition */
 typedef struct
 {
   __IO uint32_t IR;                     /*!< Offset: 0x000 Interrupt Register (R/W) */
@@ -410,6 +423,7 @@ typedef struct
 } LPC_TIM_TypeDef;
 
 /*------------- Pulse-Width Modulation (PWM) ---------------------------------*/
+/** @brief Pulse-Width Modulation (PWM) register structure definition */
 typedef struct
 {
   __IO uint32_t IR;                     /*!< Offset: 0x000 Interrupt Register (R/W) */
@@ -438,6 +452,7 @@ typedef struct
 } LPC_PWM_TypeDef;
 
 /*------------- Universal Asynchronous Receiver Transmitter (UARTx) -----------*/
+/** @brief  Universal Asynchronous Receiver Transmitter (UART) register structure definition */
 /* There are three types of UARTs on the chip:
 (1) UART0,UART2, and UART3 are the standard UART.
 (2) UART1 is the standard with modem capability.
@@ -477,6 +492,7 @@ typedef struct
   __I  uint8_t  FIFOLVL;
 } LPC_UART_TypeDef;
 #else
+/** @brief  Universal Asynchronous Receiver Transmitter 0 (UART0) register structure definition */
 typedef struct
 {
 	union
@@ -517,7 +533,7 @@ typedef struct
 }LPC_UART_TypeDef;
 #endif
 
-
+/** @brief  Universal Asynchronous Receiver Transmitter 1 (UART1) register structure definition */
 typedef struct
 {
   union {
@@ -558,6 +574,7 @@ typedef struct
        uint8_t  RESERVED11[3];
 } LPC_UART1_TypeDef;
 
+/** @brief  Universal Asynchronous Receiver Transmitter 4 (UART4) register structure definition */
 typedef struct
 {
   union {
@@ -574,24 +591,24 @@ typedef struct
   __O  uint32_t  FCR;                   /*!< Offset: 0x008 FIFO Control Register ( /W) */
   };
   __IO uint32_t  LCR;                   /*!< Offset: 0x00C Line Control Register (R/W) */
-  __IO uint32_t  MCR;                   /*!< Offset: 0x010 Modem control Register (R/W) */
+       uint32_t RESERVED0;              /*!< Offset: 0x010  */
   __I  uint32_t  LSR;                   /*!< Offset: 0x014 Line Status Register (R/ ) */
-  __I  uint32_t  MSR;                   /*!< Offset: 0x018 Modem status Register (R/ ) */
+       uint32_t RESERVED1;              /*!< Offset: 0x018  */
   __IO uint32_t  SCR;                   /*!< Offset: 0x01C Scratch Pad Register (R/W) */
   __IO uint32_t  ACR;                   /*!< Offset: 0x020 Auto-baud Control Register (R/W) */
   __IO uint32_t  ICR;                   /*!< Offset: 0x024 irDA Control Register (R/W) */
   __IO uint32_t  FDR;                   /*!< Offset: 0x028 Fractional Divider Register (R/W) */
   __IO uint32_t  OSR;                   /*!< Offset: 0x02C Over sampling Register (R/W) */
-       uint32_t  RESERVED0[6];               
+       uint32_t  RESERVED2[6];               
   __IO uint32_t  SCI_CTRL;				/*!< Offset: 0x048 Smart card Interface Control Register (R/W) */
   __IO uint32_t  RS485CTRL;             /*!< Offset: 0x04C RS-485/EIA-485 Control Register (R/W) */
   __IO uint32_t  ADRMATCH;              /*!< Offset: 0x050 RS-485/EIA-485 address match Register (R/W) */
   __IO uint32_t  RS485DLY;              /*!< Offset: 0x054 RS-485/EIA-485 direction control delay Register (R/W) */
   __IO uint32_t  SYNCCTRL;              /*!< Offset: 0x058 Synchronous Mode Control Register (R/W ) */
-  __IO uint32_t  TER;                   /*!< Offset: 0x05C Transmit Enable Register (R/W) */
 } LPC_UART4_TypeDef;
 
 /*------------- Synchronous Serial Communication (SSP) -----------------------*/
+/** @brief  Synchronous Serial Communication (SSP) register structure definition */
 typedef struct
 {
   __IO uint32_t CR0;                    /*!< Offset: 0x000 Control Register 0 (R/W) */
@@ -607,6 +624,7 @@ typedef struct
 } LPC_SSP_TypeDef;
 
 /*------------- Inter-Integrated Circuit (I2C) -------------------------------*/
+/** @brief  Inter-Integrated Circuit (I2C) register structure definition */
 typedef struct
 {
   __IO uint32_t CONSET;                 /*!< Offset: 0x000 I2C Control Set Register (R/W) */
@@ -628,6 +646,7 @@ typedef struct
 } LPC_I2C_TypeDef;
 
 /*------------- Inter IC Sound (I2S) -----------------------------------------*/
+/** @brief  Inter IC Sound (I2S) register structure definition */
 typedef struct
 {
   __IO uint32_t DAO;
@@ -647,6 +666,7 @@ typedef struct
 } LPC_I2S_TypeDef;
 
 /*------------- Real-Time Clock (RTC) ----------------------------------------*/
+/** @brief  Real-Time Clock (RTC) register structure definition */
 typedef struct
 {
   __IO uint8_t  ILR;
@@ -716,6 +736,7 @@ typedef struct
 } LPC_RTC_TypeDef;
 
 /*------------- Watchdog Timer (WDT) -----------------------------------------*/
+/** @brief  Watchdog Timer (WDT) register structure definition */
 typedef struct
 {
   __IO uint8_t  MOD;
@@ -730,6 +751,7 @@ typedef struct
 } LPC_WDT_TypeDef;
 
 /*------------- Analog-to-Digital Converter (ADC) ----------------------------*/
+/** @brief  Analog-to-Digital Converter (ADC) register structure definition */
 typedef struct
 {
   __IO uint32_t CR;                     /*!< Offset: 0x000       A/D Control Register (R/W) */
@@ -742,6 +764,7 @@ typedef struct
 } LPC_ADC_TypeDef;
 
 /*------------- Digital-to-Analog Converter (DAC) ----------------------------*/
+/** @brief  Digital-to-Analog Converter (DAC) register structure definition */
 typedef struct
 {
   __IO uint32_t CR;
@@ -750,6 +773,7 @@ typedef struct
 } LPC_DAC_TypeDef;
 
 /*------------- Motor Control Pulse-Width Modulation (MCPWM) -----------------*/
+/** @brief  Motor Control Pulse-Width Modulation (MCPWM) register structure definition */
 typedef struct
 {
   __I  uint32_t CON;
@@ -785,6 +809,7 @@ typedef struct
 } LPC_MCPWM_TypeDef;
 
 /*------------- Quadrature Encoder Interface (QEI) ---------------------------*/
+/** @brief  Quadrature Encoder Interface (QEI) register structure definition */
 typedef struct
 {
   __O  uint32_t CON;
@@ -818,6 +843,7 @@ typedef struct
 } LPC_QEI_TypeDef;
 
 /*------------- SD/MMC card Interface (MCI)-----------------------------------*/
+/** @brief  SD/MMC card Interface (MCI) register structure definition */
 typedef struct
 {
   __IO uint32_t POWER;
@@ -843,11 +869,13 @@ typedef struct
 } LPC_MCI_TypeDef;
 
 /*------------- Controller Area Network (CAN) --------------------------------*/
+/** @brief  Controller Area Network Acceptance Filter RAM (CANAF_RAM)structure definition */
 typedef struct
 {
   __IO uint32_t mask[512];              /* ID Masks                           */
 } LPC_CANAF_RAM_TypeDef;
 
+/** @brief  Controller Area Network Acceptance Filter(CANAF) register structure definition */
 typedef struct                          /* Acceptance Filter Registers        */
 {
 	///Offset: 0x00000000 - Acceptance Filter Register
@@ -884,6 +912,7 @@ typedef struct                          /* Acceptance Filter Registers        */
 	__IO uint32_t FCANIC1;
 } LPC_CANAF_TypeDef;
 
+/** @brief  Controller Area Network Central (CANCR) register structure definition */
 typedef struct                          /* Central Registers                  */
 {
   __I  uint32_t TxSR;
@@ -891,6 +920,7 @@ typedef struct                          /* Central Registers                  */
   __I  uint32_t MSR;
 } LPC_CANCR_TypeDef;
 
+/** @brief  Controller Area Network Controller (CAN) register structure definition */
 typedef struct                          /* Controller Registers               */
 {
 	///Offset: 0x00000000 - Controls the operating mode of the CAN Controller
@@ -967,6 +997,7 @@ typedef struct                          /* Controller Registers               */
 } LPC_CAN_TypeDef;
 
 /*------------- General Purpose Direct Memory Access (GPDMA) -----------------*/
+/** @brief  General Purpose Direct Memory Access (GPDMA) register structure definition */
 typedef struct                          /* Common Registers                   */
 {
   __I  uint32_t IntStat;
@@ -985,6 +1016,7 @@ typedef struct                          /* Common Registers                   */
   __IO uint32_t Sync;
 } LPC_GPDMA_TypeDef;
 
+/** @brief  General Purpose Direct Memory Access Channel (GPDMACH) register structure definition */
 typedef struct                          /* Channel Registers                  */
 {
   __IO uint32_t CSrcAddr;
@@ -995,6 +1027,7 @@ typedef struct                          /* Channel Registers                  */
 } LPC_GPDMACH_TypeDef;
 
 /*------------- Universal Serial Bus (USB) -----------------------------------*/
+/** @brief  Universal Serial Bus (USB) register structure definition */
 typedef struct
 {
   __I  uint32_t Revision;             /* USB Host Registers                 */
@@ -1099,6 +1132,7 @@ typedef struct
 } LPC_USB_TypeDef;
 
 /*------------- Ethernet Media Access Controller (EMAC) ----------------------*/
+/** @brief  Ethernet Media Access Controller (EMAC) register structure definition */
 typedef struct
 {
   __IO uint32_t MAC1;                   /* MAC Registers                      */
@@ -1158,6 +1192,7 @@ typedef struct
 } LPC_EMAC_TypeDef;
 
 /*------------- LCD controller (LCD) -----------------------------------------*/
+/** @brief  LCD controller (LCD) register structure definition */
 typedef struct
 {
   __IO uint32_t TIMH;                   /* LCD Registers                      */
@@ -1191,6 +1226,7 @@ typedef struct
 } LPC_LCD_TypeDef;
 
 /*------------- External Memory Controller (EMC) -----------------------------*/
+/** @brief  External Memory Controller (EMC) register structure definition */
 typedef struct
 {
   __IO uint32_t Control;
@@ -1261,6 +1297,7 @@ typedef struct
 } LPC_EMC_TypeDef;
 
 /*------------- CRC Engine (CRC) -----------------------------------------*/
+/** @brief  CRC Engine (CRC)  register structure definition */
 typedef struct
 {
   __IO uint32_t MODE;
@@ -1284,6 +1321,7 @@ typedef struct
 } LPC_CRC_TypeDef;
 
 /*------------- EEPROM Controller (EEPROM) -----------------------------------*/
+/** @brief  EEPROM Controller (EEPROM)  register structure definition */
 typedef struct
 {
   __IO uint32_t CMD;			/* 0x0080 */
@@ -1304,6 +1342,8 @@ typedef struct
 
 #if defined ( __CC_ARM   )
 #pragma no_anon_unions
+#elif defined ( __ICCARM__ )
+#pragma language=restore
 #endif
 
 /******************************************************************************/
@@ -1438,5 +1478,7 @@ typedef struct
 #define LPC_EMC               ((LPC_EMC_TypeDef       *) LPC_EMC_BASE      )
 #define LPC_CRC               ((LPC_CRC_TypeDef       *) LPC_CRC_BASE      )
 #define LPC_EEPROM            ((LPC_EEPROM_TypeDef    *) LPC_EEPROM_BASE   )
-
+/**
+ * @}
+ */
 #endif  // __LPC177x_8x_H__
