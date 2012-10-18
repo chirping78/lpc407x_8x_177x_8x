@@ -54,7 +54,7 @@ const uint8_t EMAC_clkdiv[] = { 4, 6, 8, 10, 14, 20, 28, 36, 40, 44, 48, 52, 56,
 /* EMAC Config data */
 static EMAC_CFG_Type EMAC_Configs;
 
-
+#if EMAC_INT_ENABLE
 /* EMAC local DMA Descriptors */
 
 
@@ -69,12 +69,8 @@ static uint16_t __attribute__ ((aligned (4))) saFrameBuffers[EMAC_MAX_FRAME_NUM]
 static uint32_t sulCurrFrameSz = 0;
 static uint8_t  sbCurrFrameID = 0;
 
-/***************************** PRIVATE FUNCTION *****************************/
-static void EMAC_UpdateRxConsumeIndex(void);
-static void EMAC_UpdateTxProduceIndex(void);
-static uint32_t EMAC_AllocTxBuff(uint16_t nFrameSize, uint8_t bLastFrame);
-static uint32_t EMAC_GetRxFrameSize(void);
 
+#endif /*EMAC_INT_ENABLE*/
 
 /*********************************************************************//**
  * @brief
@@ -209,8 +205,8 @@ void EMAC_SetFullDuplexMode(uint8_t full_duplex)
   if(full_duplex)
   {
         LPC_EMAC->MAC2    |= EMAC_MAC2_FULL_DUP;
-    LPC_EMAC->Command |= EMAC_CR_FULL_DUP;
-    LPC_EMAC->IPGT     = EMAC_IPGT_FULL_DUP;
+        LPC_EMAC->Command |= EMAC_CR_FULL_DUP;
+        LPC_EMAC->IPGT     = EMAC_IPGT_FULL_DUP;
   }
   else
   {
@@ -289,7 +285,7 @@ int32_t EMAC_Init(EMAC_CFG_Type *EMAC_ConfigStruct)
             break;
     }
 
-        if(tout >= sizeof (EMAC_clkdiv))
+    if(tout >= sizeof (EMAC_clkdiv))
         return ERROR;
     tout++;
 
@@ -338,8 +334,6 @@ int32_t EMAC_Init(EMAC_CFG_Type *EMAC_ConfigStruct)
     /* Enable receive and transmit mode of MAC Ethernet core */
     EMAC_TxEnable();
     EMAC_RxEnable();
-
-    NVIC_EnableIRQ(ENET_IRQn);
 
     return SUCCESS;
 }
@@ -624,6 +618,7 @@ void EMAC_UpdateRxConsumeIndex(void)
     LPC_EMAC->RxConsumeIndex = idx;
 }
 
+#if EMAC_INT_ENABLE
 /*********************************************************************//**
  * @brief       Standard EMAC IRQ Handler. This sub-routine will check
  *              these following interrupt and call the call-back function
@@ -772,7 +767,7 @@ void ENET_IRQHandler(void)
      
     }
 }
-
+#endif /*EMAC_INT_ENABLE*/
 
 /*********************************************************************//**
  * @brief       Enable/Disable hash filter functionality for specified destination
