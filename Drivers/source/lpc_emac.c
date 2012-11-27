@@ -520,6 +520,8 @@ void EMAC_WritePacketBuffer(EMAC_PACKETBUF_Type *pDataStruct)
    uint32_t tmp;
    uint32_t max_frame_size = LPC_EMAC->MAXF;
    
+   if(EMAC_GetBufferSts(EMAC_TX_BUFF) == EMAC_BUFF_FULL)
+      return;
    size = (size + 1) & 0xFFFE;    // round Size up to next even number
    frame_num = size/max_frame_size;
 
@@ -707,7 +709,7 @@ void ENET_IRQHandler(void)
          if(RxLen > 0)
          {
             // trip out 4-bytes CRC field, note that length in (-1) style format
-            RxLen -= 3;
+            RxLen -= 4;
               
             if((EMAC_GetRxFrameStatus() & EMAC_RINFO_ERR_MASK )== 0)
                     {

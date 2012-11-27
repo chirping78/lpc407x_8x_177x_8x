@@ -104,7 +104,7 @@ __IO uint32_t capture;
 __IO uint8_t count=0;
 /************************** PRIVATE FUNCTIONS *************************/
 /* Interrupt service routines */
-void TIMER0_IRQHandler(void);
+void _MEASURE_TIM_IRQHandler(void);
 
 void print_menu(void);
 /*----------------- INTERRUPT SERVICE ROUTINES --------------------------*/
